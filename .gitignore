@@ -28,3 +28,4 @@ nvim/.gitignore
 LICENSE
 README.md
 nvim/lua/plugins/example.lua
+lazygit/*
