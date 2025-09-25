@@ -30,3 +30,7 @@ README.md
 nvim/lua/plugins/example.lua
 lazygit/*
 .current_wall
+mimeapps.list
+Vencord/*
+*.private
+*.bak
