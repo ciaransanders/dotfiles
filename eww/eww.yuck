@@ -1,0 +1,58 @@
+(deflisten foo :initial ""
+  `tail -F ./scripts/current-workspace.txt`)
+
+(defwindow dashboard
+  :monitor 0
+  :exclusive true
+  :focusable "ondemand"
+  :stacking "fg"
+  :wm-ignore false
+  :windowtype "dock"
+  :namespace "windowsadfsadf"
+  :class "testing"
+  :geometry (geometry
+              :width "30%"
+              :heigth "60%"
+              :x "20%"
+              :y "10%"
+              :anchor "top center")
+  (dashboard_layout))
+
+(defwidget dashboard_layout []
+  (label :text "${foo}" :visible true ))
+
+(defwindow powermenu
+  :monitor 0 ;; Optional for X11
+  :stacking "fg"
+  :windowtype "normal"
+  :wm-ignore true
+  :geometry (geometry
+              :width "10%"
+              :height "10%")
+  (powermenu_layout))
+
+(defwidget powermenu_layout []
+  (label :text "Hello, World!"))
+
+
+(defwindow example
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "30px"
+                               :width "90%"
+                               :height "30px"
+                               :anchor "center")
+           :stacking "fg"
+           :reserve (struts :distance "40px" :side "top")
+           :windowtype "dock"
+           :wm-ignore false
+  (greeter 
+    :text "Say Hello" 
+    :name "Ciaran"))
+
+(defwidget greeter [?text name]
+  (box :orientation "horizontal"
+       :halign "center"
+    text
+    (button :onclick "notify-send 'Hello' 'Hello, ${name}'"
+      "Greet")))
