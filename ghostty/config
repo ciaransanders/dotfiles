@@ -20,3 +20,5 @@ theme = Gruvbox Dark
 
 # Disable ligatures
 font-feature = -calt,-liga,-dlig
+
+background-opacity = 0
