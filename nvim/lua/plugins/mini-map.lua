@@ -6,7 +6,7 @@ return {
     map.setup({
       window = {
         winblend = 0,
-        width = 25,
+        width = 20,
         show_integration_count = false,
       },
       -- Your other mini.map configuration options here
@@ -44,20 +44,6 @@ return {
         require("mini.map").toggle()
       end,
       desc = "Toggle mini.map",
-    },
-    {
-      "<leader>mr",
-      function()
-        require("mini.map").refresh()
-      end,
-      desc = "Refresh mini.map",
-    },
-    {
-      "<leader>ms",
-      function()
-        require("mini.map").toggle_side()
-      end,
-      desc = "Toggle mini.map side",
     },
   },
 }
