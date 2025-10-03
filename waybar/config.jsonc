@@ -1,124 +1,124 @@
 {
-    "layer": "top",
-    "margin": "4",
-    "spacing": "16",
-    "fixed-center": true,
-    "modules-left": [
-        "custom/launcher",
-        "wireplumber",
-        "bluetooth",
-        "hyprland/workspaces"
-    ],
-    "modules-center": [
-        "mpris"
-    ],
-    "modules-right": [
-        "network",
-        "cpu",
-        "battery",
-        "custom/dunst",
-        "clock"
-    ],
-    "wireplumber": {
-        "tooltip": false,
-        "scroll-step": 5,
-        "format": "{icon} {volume}%",
-        "format-muted": "󰝟 {volume}%",
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "format-icons": {
-            "default": [
-                "",
-                "",
-                ""
-            ]
-        }
-    },
-    "network": {
-        "tooltip": false,
-        "format-wifi": "  {essid}",
-        "format-ethernet": ""
-    },
-    "backlight": {
-        "tooltip": false,
-        "format": " {}%",
-        "interval": 1,
-        "on-scroll-up": "light -A 5",
-        "on-scroll-down": "light -U 5"
-    },
-    "battery": {
-        "states": {
-            "full": 100,
-            "good": 95,
-            "decent": 50,
-            "warning": 30,
-            "critical": 20
-        },
-        "format": "{icon}  {capacity}%",
-        "format-time": "{H} h {M} min",
-        "format-alt": "{icon}  {time}",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "tooltip": false
-    },
-    "clock": {
-        "format": "{:%H:%M}",
-        "format-alt": "{:%m-%d-%Y}",
-        "tooltip": false
-    },
-    "cpu": {
-        "interval": 15,
-        "format": "  {}%",
-        "on-click": "ghostty -e htop",
-        "max-length": 10,
-        "tooltip": false
-    },
-    "custom/dunst": {
-        "exec": "~/.config/waybar/scripts/dunst.sh",
-        "on-click": "dunstctl set-paused toggle",
-        "restart-interval": 1
-    },
-    "custom/launcher": {
-        "format": " ",
-        "on-click": "/usr/local/bin/rofi -show drun",
-        "on-click-right": "killall rofi",
-        "tooltip": false
-    },
-    "hyprland/workspaces": {
-        "format": "{icon}",
-        "on-click": "activate",
-        "format-icons": {
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5",
-            "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9",
-            "10": "10"
-        },
-        "sort-by-number": true
-    },
-    "bluetooth": {
-        "format-on": "",
-        "format-off": "", // an empty format will hide the module
-        "format-disabled": "", // an empty format will hide the module
-        "format-connected-battery": " {device_battery_percentage}%"
-    },
-    "mpris": {
-        "format": "{status_icon} {title} - {artist}",
-        "format-paused": "{status_icon} {title} - {artist}",
-        "status-icons": {
-            "paused": "▶",
-            "playing": "⏸"
-        },
-        "max-length": 40,
-        "on-click": "playerctl play-pause"
+  "layer": "top",
+  "margin": "4",
+  "spacing": "16",
+  "fixed-center": true,
+  "modules-left": [
+    "custom/launcher",
+    "wireplumber",
+    "bluetooth",
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "mpris"
+  ],
+  "modules-right": [
+    "network",
+    "cpu",
+    "battery",
+    "custom/dunst",
+    "clock"
+  ],
+  "wireplumber": {
+    "tooltip": false,
+    "scroll-step": 5,
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 {volume}%",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
     }
+  },
+  "network": {
+    "tooltip": false,
+    "format-wifi": "  {essid}",
+    "format-ethernet": ""
+  },
+  "backlight": {
+    "tooltip": false,
+    "format": " {}%",
+    "interval": 1,
+    "on-scroll-up": "light -A 5",
+    "on-scroll-down": "light -U 5"
+  },
+  "battery": {
+    "states": {
+      "full": 100,
+      "good": 95,
+      "decent": 50,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{icon}  {capacity}%",
+    "format-time": "{H} h {M} min",
+    "format-alt": "{icon}  {time}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "tooltip": false
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "format-alt": "{:%m-%d-%Y}",
+    "tooltip": false
+  },
+  "cpu": {
+    "interval": 15,
+    "format": "  {}%",
+    "max-length": 10,
+    "tooltip": false
+  },
+  "custom/dunst": {
+    "exec": "~/.config/waybar/scripts/dunst.sh",
+    "on-click": "dunstctl set-paused toggle",
+    "restart-interval": 1
+  },
+  "custom/launcher": {
+    "format": " ",
+    "on-click": "/usr/local/bin/rofi -show drun",
+    "on-click-right": "killall rofi",
+    "tooltip": false
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10"
+    },
+    "sort-by-number": true
+  },
+  "bluetooth": {
+    "format-on": "",
+    "format-off": "", // an empty format will hide the module
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": " ",
+    "format-connected-battery": " "
+  },
+  "mpris": {
+    "format": "{status_icon} {title} - {artist}",
+    "format-paused": "{status_icon} {title} - {artist}",
+    "status-icons": {
+      "paused": "▶",
+      "playing": "⏸"
+    },
+    "max-length": 40,
+    "on-click": "playerctl play-pause"
+  }
 }
