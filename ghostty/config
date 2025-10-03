@@ -22,3 +22,4 @@ theme = Gruvbox Dark
 font-feature = -calt,-liga,-dlig
 
 background-opacity = 0
+keybind = shift+enter=text:\x1b\r
