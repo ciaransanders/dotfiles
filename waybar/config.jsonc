@@ -55,7 +55,6 @@
     },
     "format": "{icon}  {capacity}%",
     "format-time": "{H} h {M} min",
-    "format-alt": "{icon}  {time}",
     "format-icons": [
       "",
       "",
