@@ -37,7 +37,7 @@
     # Offset from the origin
     # NOTE: Dunst from version 1.11 and older use this alternative notation
     # offset = 10x50
-    offset = (30, 30)
+    offset = (10, 10)
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -311,21 +311,21 @@
 
 
 [urgency_low]
-    background = "#28282800"
+    background = "#1d2021"
     foreground = "#EBDBB2"
     timeout = 4
     default_icon = preferences-system-notifications-symbolic
 
 
 [urgency_normal]
-    background = "#28282800"
+    background = "#1d2021"
     foreground = "#EBDBB2"
     timeout = 4
     default_icon = preferences-system-notifications-symbolic
     override_pause_level = 30
 
 [urgency_critical]
-    background = "#28282800"
+    background = "#1d2021"
     foreground = "#EBDBB2"
     timeout = 4
     default_icon = preferences-system-notifications-symbolic
