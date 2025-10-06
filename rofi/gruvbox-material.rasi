@@ -7,7 +7,7 @@
 
     /* Gruvbox light colors */
     gruvbox-light-bg0:          #fae3b0;
-    gruvbox-light-bg0-soft:     #3C3836;
+    gruvbox-light-bg0-soft:     #1d2021;
     gruvbox-light-bg2:          #d5c4a1;
     gruvbox-light-fg0:          #282828;
     gruvbox-light-fg1:          #A89984;
@@ -53,12 +53,12 @@ window {
 }
 
 listview {
-  margin: 10px 10px 10px 10px;
+  margin: 5px 5px 5px 5px;
 }
 
 element {
   children: [ element-icon, element-text ];
-  spacing: 10px;
+  spacing: 5px;
   padding: 6;
   border-radius: 8px;
 }
