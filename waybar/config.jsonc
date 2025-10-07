@@ -22,7 +22,6 @@
     "scroll-step": 5,
     "format": "{icon}",
     "format-muted": "󰝟",
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "format-icons": {
       "default": [
         "",
@@ -102,8 +101,7 @@
       "paused": "▶",
       "playing": "⏸"
     },
-    "max-length": 30,
-    "on-click": "playerctl play-pause"
+    "max-length": 30
   },
   "cava": {
     "framerate": 60,
