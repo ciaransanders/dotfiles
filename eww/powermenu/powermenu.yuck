@@ -1,0 +1,14 @@
+(defwindow powermenu
+  :wm-ignore true
+  :exclusive false
+  :stacking "fg"
+  :geometry (geometry
+              :y "5%"
+              :anchor "top center")
+  (powermenu_widget))
+
+(defwidget powermenu_widget []
+  (box :orientation "horizontal" :spacing 64 :halign "center" :valign "center"
+    (button :onclick "notify-send 'Hello'" :height 200 :width 200 (label :text "click me"))
+    (button :onclick "notify-send 'Hello'" :height 200 :width 200 (label :text "click me"))
+    (button :onclick "notify-send 'Hello'" :height 200 :width 200 (label :text "click me"))))
