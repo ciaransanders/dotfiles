@@ -1,29 +1,27 @@
 {
   "layer": "top",
-  "margin": "4",
-  "spacing": "16",
   "fixed-center": true,
   "modules-left": [
     "custom/launcher",
-    "wireplumber",
-    "bluetooth",
     "hyprland/workspaces"
   ],
   "modules-center": [
-    "mpris"
+    "clock"
   ],
   "modules-right": [
-    "network",
-    "cpu",
-    "battery",
+    "mpris",
+    "cava",
+    "wireplumber",
     "custom/dunst",
-    "clock"
+    "battery",
+    "bluetooth",
+    "network"
   ],
   "wireplumber": {
     "tooltip": false,
     "scroll-step": 5,
-    "format": "{icon} {volume}%",
-    "format-muted": "󰝟 {volume}%",
+    "format": "{icon}",
+    "format-muted": "󰝟",
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "format-icons": {
       "default": [
@@ -35,15 +33,9 @@
   },
   "network": {
     "tooltip": false,
-    "format-wifi": "  {essid}",
-    "format-ethernet": ""
-  },
-  "backlight": {
-    "tooltip": false,
-    "format": " {}%",
-    "interval": 1,
-    "on-scroll-up": "light -A 5",
-    "on-scroll-down": "light -U 5"
+    "format-wifi": "",
+    "format-disconnected": "",
+    "format-ethernet": ""
   },
   "battery": {
     "states": {
@@ -53,7 +45,7 @@
       "warning": 30,
       "critical": 20
     },
-    "format": "{icon}  {capacity}%",
+    "format": "{icon}",
     "format-time": "{H} h {M} min",
     "format-icons": [
       "",
@@ -69,19 +61,12 @@
     "format-alt": "{:%m-%d-%Y}",
     "tooltip": false
   },
-  "cpu": {
-    "interval": 15,
-    "format": "  {}%",
-    "max-length": 10,
-    "tooltip": false
-  },
   "custom/dunst": {
     "exec": "~/.config/waybar/scripts/dunst.sh",
-    "on-click": "dunstctl set-paused toggle",
     "restart-interval": 1
   },
   "custom/launcher": {
-    "format": " ",
+    "format": "",
     "on-click": "/usr/local/bin/rofi -show drun",
     "on-click-right": "killall rofi",
     "tooltip": false
@@ -107,8 +92,8 @@
     "format-on": "",
     "format-off": "", // an empty format will hide the module
     "format-disabled": "", // an empty format will hide the module
-    "format-connected": " ",
-    "format-connected-battery": " "
+    "format-connected": "",
+    "format-connected-battery": ""
   },
   "mpris": {
     "format": "{status_icon} {title} - {artist}",
@@ -117,7 +102,28 @@
       "paused": "▶",
       "playing": "⏸"
     },
-    "max-length": 40,
+    "max-length": 30,
     "on-click": "playerctl play-pause"
+  },
+  "cava": {
+    "framerate": 60,
+    "bars": 14,
+    "sleep_timer": 5,
+    "hide_on_silence": true,
+    "method": "pipewire",
+    "stereo": true,
+    "bar_delimiter": 0,
+    "noise_reduction": 0.77,
+    "input_delay": 0,
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ]
   }
 }
