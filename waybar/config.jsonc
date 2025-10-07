@@ -111,7 +111,7 @@
     "method": "pipewire",
     "stereo": true,
     "bar_delimiter": 0,
-    "noise_reduction": 0.77,
+    "noise_reduction": 0.57,
     "input_delay": 0,
     "format-icons": [
       "▁",
