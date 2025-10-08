@@ -67,7 +67,7 @@
   },
   "custom/launcher": {
     "format": "",
-    "on-click": "$HOME/.config/hypr/scripts/powermenu.sh",
+    "on-click": "$HOME/.config/eww/powermenu/powermenu.sh",
     "tooltip": false
   },
   "hyprland/workspaces": {
