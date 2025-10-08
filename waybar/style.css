@@ -14,7 +14,7 @@ window#waybar.hidden {
 }
 
 #workspaces {
-  margin: 8px 14px 0px 14px;
+  margin: 12px 14px 0px 14px;
   transition: none;
 }
 
@@ -29,30 +29,31 @@ window#waybar.hidden {
 
 #workspaces button:hover {
   background: transparent;
-  box-shadow: inherit;
-  text-shadow: inherit;
+  box-shadow: none;
+  text-shadow: none;
+  color: #83a598;
 }
 
 #network {
-  margin: 8px 28px 0px 14px;
+  margin: 12px 28px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
 
 #wireplumber {
-  margin: 8px 14px 0px 14px;
+  margin: 12px 14px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
 
 #bluetooth {
-  margin: 8px 14px 0px 14px;
+  margin: 12px 14px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
 
 #battery {
-  margin: 8px 14px 0px 14px;
+  margin: 12px 14px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
@@ -67,44 +68,47 @@ window#waybar.hidden {
 }
 
 #clock {
-  margin: 8px 14px 0px 14px;
+  margin: 12px 14px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
 
 #custom-dunst {
-  margin: 8px 14px 0px 14px;
+  margin: 12px 14px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
 
 #cpu {
-  margin: 8px 14px 0px 14px;
+  margin: 12px 14px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
 
 #custom-launcher {
-  font-size: 20px;
-  margin: 8px 14px 0px 28px;
+  font-size: 28px;
+  margin: 12px 14px 0px 28px;
   transition: none;
   color: #ebdbb2;
 }
 
+#custom-launcher:hover {
+  color: #d3869b;
+}
+
 #custom-media {
-  margin: 8px 14px 0px 14px;
+  margin: 12px 14px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
 
 #mpris {
-  margin: 8px 14px 0px 14px;
+  margin: 12px 14px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
 
 #cava {
-  /* align-items: center; */
-  margin: 8px 14px 0px 14px;
+  margin: 12px 14px 0px 14px;
   color: #ebdbb2;
 }

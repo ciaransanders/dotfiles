@@ -65,9 +65,8 @@
     "restart-interval": 1
   },
   "custom/launcher": {
-    "format": "",
-    "on-click": "/usr/local/bin/rofi -show drun",
-    "on-click-right": "killall rofi",
+    "format": "",
+    "on-click": "eww open --toggle powermenu --screen $(hyprctl activewindow -j | jq '.monitor')",
     "tooltip": false
   },
   "hyprland/workspaces": {
@@ -95,6 +94,7 @@
     "format-connected-battery": ""
   },
   "mpris": {
+    "tooltip": false,
     "format": "{status_icon} {title} - {artist}",
     "format-paused": "{status_icon} {title} - {artist}",
     "status-icons": {
