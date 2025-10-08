@@ -1,1 +1,10 @@
+; Default variable assignments. Make sure to set these yourself on startup!
+(defvar home "/home/stinkydinky/")
+(defvar closer_script "/home/stinkydinky/.config/eww/scripts/close_closers.sh")
+
+; Closer helper widget. Used to wrap around a window and close said window if user clicks outside of the winow
+(defwidget closer [window]
+  (eventbox :onclick "${closer_script} ${window}")
+)
+
 (include "./powermenu/powermenu.yuck")

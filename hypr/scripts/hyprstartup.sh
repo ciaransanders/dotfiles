@@ -17,3 +17,7 @@ if [[ ! $(pidof eww) ]]; then
   ${EWW} daemon
   sleep 1
 fi
+
+# Set home variable for eww
+eww update home="$HOME"
+eww update closer_script="$HOME/.config/eww/scripts/close_closers.sh"

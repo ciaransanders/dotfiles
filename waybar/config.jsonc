@@ -46,6 +46,7 @@
     },
     "format": "{icon}",
     "format-time": "{H} h {M} min",
+    "format-charging": "{icon} 󱐋",
     "format-icons": [
       "",
       "",
@@ -66,7 +67,7 @@
   },
   "custom/launcher": {
     "format": "",
-    "on-click": "eww open --toggle powermenu --screen $(hyprctl activewindow -j | jq '.monitor')",
+    "on-click": "$HOME/.config/hypr/scripts/powermenu.sh",
     "tooltip": false
   },
   "hyprland/workspaces": {
@@ -90,8 +91,8 @@
     "format-on": "",
     "format-off": "", // an empty format will hide the module
     "format-disabled": "", // an empty format will hide the module
-    "format-connected": "",
-    "format-connected-battery": ""
+    "format-connected": " ",
+    "format-connected-battery": " "
   },
   "mpris": {
     "tooltip": false,
