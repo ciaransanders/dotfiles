@@ -1,37 +1,36 @@
 
 (defwindow powermenu-closer [screen]
   :monitor screen
-  :geometry (geometry :width "100%" :height "100%")
   :class "powermenu-closer"
+  :stacking "fg"
+  :geometry (geometry :width "100%" :height "100%")
   (closer :window "powermenu")
 )
 
 (defwindow powermenu [screen]
   :monitor screen
   :class "powermenu"
+  :stacking "fg"
   :wm-ignore true
   :exclusive false
-  :stacking "fg"
-  :geometry (geometry
-              :y "25%"
-              :anchor "top center")
+  :geometry (geometry :y "25%" :anchor "top center")
   (powermenu_widget)
 )
 
 (defwidget powermenu_widget []
   (box :orientation "horizontal" :spacing 32 :halign "center" :valign "center"
     (eventbox :cursor "pointer"
-      (button :onclick "bash -c '${closer_script} powermenu && poweroff'&" :height 150 :width 150 
+      (button :class "poweroff" :onclick "bash -c '${closer_script} powermenu && poweroff'&" :height 150 :width 150 
         (image :path "${home}/.config/eww/images/power.svg" :image-width 100 :fill-svg "white")
       )
     )
     (eventbox :cursor "pointer"
-      (button :onclick "bash -c '${closer_script} powermenu && hyprlock'&" :height 150 :width 150 
+      (button :class "lock" :onclick "bash -c '${closer_script} powermenu && hyprlock'&" :height 150 :width 150 
         (image :path "${home}/.config/eww/images/lock.svg" :image-width 100 :fill-svg "white")
       )
     )
     (eventbox :cursor "pointer"
-      (button :onclick "bash -c '${closer_script} powermenu && uwsm app -- rofi -show drun'&" :height 150 :width 150 
+      (button :class "launcher" :onclick "bash -c '${closer_script} powermenu && uwsm app -- rofi -show drun'&" :height 150 :width 150 
         (image :path "${home}/.config/eww/images/rocket.svg" :image-width 100 :fill-svg "white")
       )
     )

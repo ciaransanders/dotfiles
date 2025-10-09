@@ -1,15 +1,22 @@
 .powermenu-closer {
-  background-image: url("/home/stinkydinky/.config/hypr/.current_wall"); 
-  background-size: cover;
+  background-color: rgba($gruvbox-bg0, 0);
 }
 
 .powermenu {
-  background-color: transparent;
+  padding: 24px;
+  background-color: rgba($gruvbox-bg, 0.4);
+  border-radius: 24px;
 }
 
 .powermenu button {
-  border-radius: 24px;
-  &:hover {
-    background-color: $gruvbox-bg;
+  border-radius: 12px;
+  &.poweroff:hover {
+    background-color: $gruvbox-orange-light;
+  }
+  &.lock:hover {
+    background-color: $gruvbox-green-light;
+  }
+  &.launcher:hover {
+    background-color: $gruvbox-yellow-light;
   }
 }

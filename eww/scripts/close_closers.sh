@@ -1,3 +1,4 @@
+#!/bin/bash
 # Close all closer helpers currently open for the window
 # Args:
 #   window: name of the window

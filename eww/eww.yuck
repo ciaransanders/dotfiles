@@ -8,3 +8,4 @@
 )
 
 (include "./powermenu/powermenu.yuck")
+(include "./volume_display/volume_display.yuck")

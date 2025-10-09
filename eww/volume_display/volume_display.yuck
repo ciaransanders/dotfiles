@@ -1,0 +1,19 @@
+(defvar volume_reveal false)
+(deflisten volume "pactl subscribe | grep --line-buffered \"'change' on sink\" | while read -r _; do pactl get-sink-volume @DEFAULT_SINK@ | awk '/Volume:/ {print $5}' | tr -d '%'; done")
+
+(defwidget volume_widget []
+  (box :class "volume-box"
+       :orientation "vertical"
+    (label :text "Volume: ${volume}%")
+  )
+)
+
+(defwindow volume_popup
+  :monitor 1
+  :geometry (geometry :x "0%"
+                      :y "20px"
+                      :anchor "top center")
+  :stacking "overlay"
+  :wm-ignore true
+    (volume_widget)
+)

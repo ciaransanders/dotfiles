@@ -21,3 +21,6 @@ fi
 # Set home variable for eww
 eww update home="$HOME"
 eww update closer_script="$HOME/.config/eww/scripts/close_closers.sh"
+
+# Start daemon for controlling displayal for eww volume display widget
+setsid "$HOME/.config/eww/volume_display/volume_display.sh" >/dev/null 2>&1 </dev/null &
