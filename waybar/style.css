@@ -20,11 +20,12 @@ window#waybar.hidden {
 
 #workspaces button {
   transition: none;
-  color: #ebdbb2;
+  color: #ebdbb2 ;
 }
 
 #workspaces button.active {
-  color: #8ec07c;
+  color: #fe8019;
+  
 }
 
 #workspaces button:hover {
@@ -93,7 +94,7 @@ window#waybar.hidden {
 }
 
 #custom-launcher:hover {
-  color: #d3869b;
+  color: #fe8019;
 }
 
 #custom-media {

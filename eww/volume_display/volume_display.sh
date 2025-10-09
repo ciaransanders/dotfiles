@@ -1,6 +1,16 @@
 #!/bin/bash
 
 LOCK_FILE="/tmp/eww-volume-popup.lock"
+VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '/Volume:/ {print $5}' | tr -d '%')
+
+update_volume_variable() {
+  # Update the volume variable for eww
+  VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '/Volume:/ {print $5}' | tr -d '%')
+  if [ "$VOLUME" == 1 ]; then
+    VOLUME=0
+  fi
+  eww update volume="$VOLUME"
+}
 
 show_popup() {
   # Kill any existing popup timer
@@ -14,7 +24,7 @@ show_popup() {
 
   # Show the popup
   if [ ! "$(eww active-windows | grep -oP "volume_popup:" | tr -d ":")" ]; then
-    eww open volume_popup
+    eww open volume_popup --screen "$(hyprctl monitors -j | jq '.[] | select(.focused == true) | .id')"
   fi
 
   sleep 2
@@ -26,11 +36,19 @@ show_popup() {
   fi
 }
 
-# Output initial volume on startup
-eww update volume="$(pactl get-sink-volume @DEFAULT_SINK@ | awk '/Volume:/ {print $5}' | tr -d '%')"
+# Initialize volume variable in eww
+update_volume_variable
 
-# Listen for changes
+# Listen for changes to volume in pipewire using pactl
 pactl subscribe | grep --line-buffered "'change' on sink" | while read -r _; do
+
+  # Update volume variable
+  OLD_VOLUME=$VOLUME
+  update_volume_variable
+
   # Trigger the popup in the background
-  show_popup &
+  if [ ! "$VOLUME" == "$OLD_VOLUME" ]; then
+    show_popup &
+  fi
+
 done
