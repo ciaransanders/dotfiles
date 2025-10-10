@@ -2,8 +2,7 @@
 (defvar volume_reveal false)
 
 (defwidget volume_widget []
-  (box :class "volume_widget" :orientation "vertical"
-    ; (label :text "Volume: ${volume}%")
+  (box :class "volume_widget" :orientation "horizontal"
     (progress :orientation "horizontal" :value volume)
   )
 )
