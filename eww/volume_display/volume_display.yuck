@@ -3,7 +3,7 @@
 
 (defwidget volume_widget []
   (box :class "volume_widget" :orientation "vertical"
-    (label :text "Volume: ${volume}%")
+    ; (label :text "Volume: ${volume}%")
     (progress :orientation "horizontal" :value volume)
   )
 )
