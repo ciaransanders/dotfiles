@@ -105,7 +105,7 @@
     "max-length": 30
   },
   "cava": {
-    "framerate": 60,
+    "framerate": 30,
     "bars": 14,
     "sleep_timer": 5,
     "hide_on_silence": true,
