@@ -4,13 +4,16 @@
 # Additionally, each config option is also explained in detail
 # on Ghostty's website, at https://ghostty.org/docs/config.
 
+# General
 working-directory = home
 window-inherit-working-directory = false
 font-family = JetBrainsMono Nerd Font
-# font-size = 11  # For working on monitor
-font-size = 14  # For working on laptop
-window-padding-x = 8
-window-padding-y = 8
+# font-size = 11
+font-size = 13
+window-padding-x = 16
+window-padding-y = 16
+resize-overlay = never
+background-opacity = 0
 
 # Cursor settings
 cursor-color = #B8BB26
@@ -22,6 +25,5 @@ theme = Gruvbox Dark
 # Disable ligatures
 font-feature = -calt,-liga,-dlig
 
-background-opacity = 0
+# Claude settings
 keybind = shift+enter=text:\x1b\r
-resize-overlay = never
