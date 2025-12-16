@@ -6,6 +6,7 @@ return {
         background = { bg = "#1D2021" },
         fill = { bg = "#1D2021" },
         buffer_selected = { bg = "#1D2021", fg = "#98971A" },
+        buffer_visible = { bg = "#1D2021", fg = "#98971A" },
         close_button = { bg = "#1D2021" },
         close_button_selected = { bg = "#1D2021" },
         close_button_visible = { bg = "#1D2021" },
