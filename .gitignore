@@ -35,3 +35,5 @@ Vencord/*
 *.private
 *.bak
 libreoffice/*
+google-chrome/*
+.avalonia-build-tasks/*
