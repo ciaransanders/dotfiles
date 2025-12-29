@@ -104,7 +104,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 0
+    frame_width = 1
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -249,7 +249,7 @@
     # Define the class of the windows spawned by dunst (X11 only)
     class = Dunst
 
-    corner_radius = 8
+    corner_radius = 12
     corners = all
 
     # Ignore the dbus closeNotification message.
@@ -313,6 +313,7 @@
 [urgency_low]
     background = "#1d2021"
     foreground = "#EBDBB2"
+    frame_color = "#EBDBB2"
     timeout = 4
     default_icon = preferences-system-notifications-symbolic
 
@@ -320,6 +321,7 @@
 [urgency_normal]
     background = "#1d2021"
     foreground = "#EBDBB2"
+    frame_color = "#EBDBB2"
     timeout = 4
     default_icon = preferences-system-notifications-symbolic
     override_pause_level = 30
@@ -327,6 +329,7 @@
 [urgency_critical]
     background = "#1d2021"
     foreground = "#EBDBB2"
+    frame_color = "#EBDBB2"
     timeout = 4
     default_icon = preferences-system-notifications-symbolic
     override_pause_level = 60
