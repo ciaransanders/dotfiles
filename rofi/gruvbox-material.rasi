@@ -74,6 +74,8 @@ element-text {
 window {
   background-color: @background;
   padding: 8px 8px 0 8px;
+  border: 1px;
+  border-color: #EBDBB2;
 }
 
 mainbox {
