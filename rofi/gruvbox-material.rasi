@@ -7,7 +7,7 @@
 
     /* Gruvbox light colors */
     gruvbox-light-bg0:          #fae3b0;
-    gruvbox-light-bg0-soft:     #1d2021;
+    gruvbox-light-bg0-soft:     #282828;
     gruvbox-light-bg2:          #d5c4a1;
     gruvbox-light-fg0:          #282828;
     gruvbox-light-fg1:          #A89984;
@@ -74,8 +74,8 @@ element-text {
 window {
   background-color: @background;
   padding: 8px 8px 0 8px;
-  border: 1px;
-  border-color: #EBDBB2;
+  border: 2px;
+  border-color: #a89984;
 }
 
 mainbox {
