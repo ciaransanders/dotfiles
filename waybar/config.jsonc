@@ -10,7 +10,7 @@
   ],
   "modules-right": [
     "mpris",
-    "cava",
+    // "cava",
     "wireplumber",
     "custom/dunst",
     "battery",
@@ -58,7 +58,7 @@
   },
   "clock": {
     "format": "{:%H:%M}",
-    "format-alt": "{:%m-%d-%Y}",
+    "format-alt": "{:%A %B %d, %Y}",
     "tooltip": false
   },
   "custom/dunst": {
