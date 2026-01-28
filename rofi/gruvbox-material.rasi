@@ -17,6 +17,7 @@
     gruvbox-light-yellow-dark:  #b57614;
     gruvbox-light-yellow-light: #d79921;
     gruvbox-light-green: #689D6A;
+    gruvbox-light-orange: #fe8019;
 
     /* Theme colors */
     background:                  @gruvbox-light-bg0-soft;
@@ -29,7 +30,7 @@
     normal-foreground:           @foreground;
     alternate-normal-background: @gruvbox-light-bg0-soft;
     alternate-normal-foreground: @foreground;
-    selected-normal-background:  @gruvbox-light-green;
+    selected-normal-background:  @gruvbox-light-orange;
     selected-normal-foreground:  @gruvbox-light-fg0;
 
     active-background:           @gruvbox-light-yellow-light;
