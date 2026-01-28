@@ -3,10 +3,12 @@
   font-family: "JetbrainsMono Nerd Font";
   font-size: 16px;
   min-height: 20px;
+  margin: 0px;
 }
 
 window#waybar {
   background: transparent;
+  border-radius: 12px;
 }
 
 window#waybar.hidden {
@@ -14,7 +16,7 @@ window#waybar.hidden {
 }
 
 #workspaces {
-  margin: 12px 14px 0px 14px;
+  margin: 0px 14px 0px 14px;
   transition: none;
 }
 
@@ -36,25 +38,25 @@ window#waybar.hidden {
 }
 
 #network {
-  margin: 12px 28px 0px 14px;
+  margin: 0px 28px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
 
 #wireplumber {
-  margin: 12px 14px 0px 14px;
+  margin: 0px 14px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
 
 #bluetooth {
-  margin: 12px 14px 0px 14px;
+  margin: 0px 14px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
 
 #battery {
-  margin: 12px 14px 0px 14px;
+  margin: 0px 14px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
@@ -69,26 +71,26 @@ window#waybar.hidden {
 }
 
 #clock {
-  margin: 12px 14px 0px 14px;
+  margin: 0px 14px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
 
 #custom-dunst {
-  margin: 12px 14px 0px 14px;
+  margin: 0px 14px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
 
 #cpu {
-  margin: 12px 14px 0px 14px;
+  margin: 0px 14px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
 
 #custom-launcher {
-  font-size: 28px;
-  margin: 12px 14px 0px 28px;
+  font-size: 40px;
+  margin: 0px 14px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
@@ -98,18 +100,18 @@ window#waybar.hidden {
 }
 
 #custom-media {
-  margin: 12px 14px 0px 14px;
+  margin: 0px 14px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
 
 #mpris {
-  margin: 12px 14px 0px 14px;
+  margin: 0px 14px 0px 14px;
   transition: none;
   color: #ebdbb2;
 }
 
 #cava {
-  margin: 12px 14px 0px 14px;
+  margin: 0px 14px 0px 14px;
   color: #ebdbb2;
 }
