@@ -1,11 +1,16 @@
-.powermenu-closer {
-  background-color: rgba($gruvbox-bg0, 0.2);
-}
+// .powermenu-closer {
+//   background-color: rgba($gruvbox-bg0, 0.1);
+// }
 
 .powermenu {
   padding: 12px;
   background-color: rgba($gruvbox-bg0, 0);
   border-radius: 24px;
+}
+
+.powermenu-box {
+  background-color: $gruvbox-bg;
+  padding: 25px;
 }
 
 .powermenu button {

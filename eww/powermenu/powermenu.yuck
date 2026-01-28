@@ -18,20 +18,20 @@
 )
 
 (defwidget powermenu_widget []
-  (box :orientation "horizontal" :spacing 32 :halign "center" :valign "center"
+  (box :orientation "horizontal" :spacing 32 :halign "center" :valign "center" :class "powermenu-box"
     (eventbox :cursor "pointer"
       (button :class "poweroff" :onclick "bash -c '${closer_script} powermenu && poweroff'&" :height 150 :width 150 
-        (image :path "${home}/.config/eww/images/power.svg" :image-width 100 :fill-svg "white")
+        (image :path "${home}/.config/eww/images/power.svg" :image-width 100 :fill-svg "#ebdbb2")
       )
     )
     (eventbox :cursor "pointer"
       (button :class "lock" :onclick "bash -c '${closer_script} powermenu && hyprlock'&" :height 150 :width 150 
-        (image :path "${home}/.config/eww/images/lock.svg" :image-width 100 :fill-svg "white")
+        (image :path "${home}/.config/eww/images/lock.svg" :image-width 100 :fill-svg "#ebdbb2")
       )
     )
     (eventbox :cursor "pointer"
       (button :class "launcher" :onclick "bash -c '${closer_script} powermenu && uwsm app -- rofi -show drun'&" :height 150 :width 150 
-        (image :path "${home}/.config/eww/images/rocket.svg" :image-width 100 :fill-svg "white")
+        (image :path "${home}/.config/eww/images/rocket.svg" :image-width 100 :fill-svg "#ebdbb2")
       )
     )
   )
