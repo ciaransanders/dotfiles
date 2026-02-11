@@ -19,7 +19,7 @@ return {
         hint = { bg = "#1D2021" },
         hint_selected = { bg = "#1D2021" },
         hint_visible = { bg = "#1D2021" },
-        indicator_selected = { bg = "#1D2021" },
+        indicator_selected = { bg = "#1D2021", fg = "#ebdbb2" },
         indicator_visible = { bg = "#1D2021" },
         info = { bg = "#1D2021" },
         info_selected = { bg = "#1D2021" },
@@ -49,8 +49,8 @@ return {
       },
       options = {
         indicator = {
-          icon = "",
-          style = "#1D2021",
+          icon = "▎",
+          style = "icon",
         },
         separator_style = { "", "" },
       },
