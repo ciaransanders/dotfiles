@@ -9,6 +9,9 @@ return {
     opts = {
       interactions = {
         chat = {
+          opts = {
+            completion_provider = "blink",
+          },
           adapter = {
             name = "claude_code",
           },
