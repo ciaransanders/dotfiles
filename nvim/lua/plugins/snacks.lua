@@ -2,6 +2,11 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      zen = {
+        toggles = {
+          dim = false,
+        },
+      },
       scroll = { enabled = false },
       picker = {
         exclude = {
