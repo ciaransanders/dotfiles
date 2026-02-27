@@ -10,9 +10,9 @@ return {
       overrides = {
         TreesitterContextBottom = { underline = true, sp = "#665c54" },
         TreesitterContextLineNumberBottom = { underline = true, sp = "#665c54" },
-        IlluminatedWordText = { bg = "#665c54", underline = false },
-        IlluminatedWordRead = { bg = "#665c54", underline = false },
-        IlluminatedWordWrite = { bg = "#665c54", underline = false },
+        IlluminatedWordText = { bg = "#ebdbb2", fg = "#282828", underline = false },
+        IlluminatedWordRead = { bg = "#ebdbb2", fg = "#282828", underline = false },
+        IlluminatedWordWrite = { bg = "#ebdbb2", fg = "#282828", underline = false },
         StatusLine = { bg = "#3C3836" },
       },
     },
