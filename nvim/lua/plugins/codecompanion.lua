@@ -12,9 +12,7 @@ return {
           opts = {
             completion_provider = "blink",
           },
-          adapter = {
-            name = "claude_code",
-          },
+          adapter = "claude_code",
         },
         inline = {
           adapter = "anthropic",
@@ -33,6 +31,9 @@ return {
         },
       },
       display = {
+        chat = {
+          show_tools_processing = true,
+        },
         diff = {
           provider = "inline",
           provider_opts = {
