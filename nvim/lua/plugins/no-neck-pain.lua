@@ -1,6 +1,7 @@
 return {
   {
     "shortcuts/no-neck-pain.nvim",
+    enabled = false,
     opts = {
       width = 140,
       autocmds = {
