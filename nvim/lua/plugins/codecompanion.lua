@@ -14,6 +14,7 @@ return {
           opts = {
             expiration_days = 21,
             picker = "snacks",
+            auto_generate_title = false,
           },
         },
       },
