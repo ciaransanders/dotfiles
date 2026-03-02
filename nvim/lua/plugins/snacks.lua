@@ -9,6 +9,18 @@ return {
       },
       scroll = { enabled = false },
       picker = {
+        sources = {
+          explorer = {
+            jump = {
+              close = false,
+            },
+            layout = {
+              layout = {
+                width = 50,
+              },
+            },
+          },
+        },
         exclude = {
           "**/migrations**/",
         },
