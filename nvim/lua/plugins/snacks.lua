@@ -16,7 +16,7 @@ return {
             },
             layout = {
               layout = {
-                width = 50,
+                width = 60,
               },
             },
           },
