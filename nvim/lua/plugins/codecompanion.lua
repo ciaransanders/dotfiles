@@ -5,8 +5,18 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
+      "ravitemer/codecompanion-history.nvim",
     },
     opts = {
+      extensions = {
+        history = {
+          enabled = true,
+          opts = {
+            expiration_days = 21,
+            picker = "snacks",
+          },
+        },
+      },
       interactions = {
         chat = {
           opts = {
