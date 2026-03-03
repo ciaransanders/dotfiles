@@ -17,6 +17,7 @@ return {
         CursorLine = { bg = "#282828" },
         CursorLineNr = { bg = "NONE" },
         Visual = { bg = "#3C3836" },
+        RenderMarkdownCode = { bg = "#1D2021" },
       },
     },
   },
