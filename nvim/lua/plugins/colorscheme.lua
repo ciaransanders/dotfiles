@@ -18,6 +18,7 @@ return {
         CursorLineNr = { bg = "NONE" },
         Visual = { bg = "#3C3836" },
         RenderMarkdownCode = { bg = "#1D2021" },
+        Folded = { bg = "#282828" },
       },
     },
   },
