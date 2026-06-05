@@ -6,7 +6,8 @@
   "fixed-center": true,
   "modules-left": [
     "custom/launcher",
-    "hyprland/workspaces"
+    "hyprland/workspaces",
+    "hyprland/window"
   ],
   "modules-center": [
     "clock"
@@ -127,5 +128,10 @@
       "▇",
       "█"
     ]
+  },
+  "hyprland/window": {
+    "format": "󰊓",
+    "separate-outputs": true,
+    "icon": false
   }
 }

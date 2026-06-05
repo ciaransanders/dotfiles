@@ -1,7 +1,6 @@
 * {
   border: none;
   font-family: "JetbrainsMono Nerd Font";
-  font-size: 16px;
   min-height: 20px;
   margin: 0px;
 }
@@ -9,6 +8,7 @@
 window#waybar {
   background: transparent;
   border-radius: 12px;
+  font-size: 16px;
 }
 
 window#waybar.hidden {
@@ -114,4 +114,14 @@ window#waybar.hidden {
 #cava {
   margin: 0px 14px 0px 14px;
   color: #ebdbb2;
+}
+
+#window {
+  opacity: 0;
+  font-size: 32px;
+  color: #ebdbb2;
+}
+
+window#waybar.fullscreen #window {
+  opacity: 1;
 }
