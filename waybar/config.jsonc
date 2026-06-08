@@ -7,10 +7,10 @@
   "modules-left": [
     "custom/launcher",
     "hyprland/workspaces",
-    "hyprland/window"
   ],
   "modules-center": [
-    "clock"
+    "clock",
+    "hyprland/window"
   ],
   "modules-right": [
     "mpris",
@@ -130,7 +130,7 @@
     ]
   },
   "hyprland/window": {
-    "format": "󰊓",
+    "format": "󰊔",
     "separate-outputs": true,
     "icon": false
   }
