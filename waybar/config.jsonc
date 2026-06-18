@@ -6,7 +6,7 @@
   "fixed-center": true,
   "modules-left": [
     "custom/launcher",
-    "hyprland/workspaces",
+    "hyprland/workspaces"
   ],
   "modules-center": [
     "clock",
