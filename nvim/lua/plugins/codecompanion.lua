@@ -1,7 +1,7 @@
 return {
   {
     "olimorris/codecompanion.nvim",
-    version = "^18.0.0",
+    version = "^19.0.0",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -35,7 +35,7 @@ return {
             return require("codecompanion.adapters").extend("claude_code", {}) -- looks for env variable CLAUDE_CODE_OAUTH_TOKEN
           end,
         },
-        https = {
+        http = {
           anthropic = function()
             return require("codecompanion.adapters").extend("anthropic", {}) -- looks for env variable ANTHROPIC_API_KEY
           end,
