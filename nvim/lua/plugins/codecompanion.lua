@@ -28,6 +28,17 @@ return {
         inline = {
           adapter = "anthropic",
         },
+        cli = {
+          agent = "claude_code",
+          agents = {
+            claude_code = {
+              cmd = "claude",
+              args = {},
+              description = "Claude Code CLI",
+              provider = "terminal",
+            },
+          },
+        },
       },
       adapters = {
         acp = {
@@ -37,7 +48,18 @@ return {
         },
         http = {
           anthropic = function()
-            return require("codecompanion.adapters").extend("anthropic", {}) -- looks for env variable ANTHROPIC_API_KEY
+            return require("codecompanion.adapters").extend("anthropic", {
+              -- The inline default model (claude-sonnet-5) rejects `temperature`
+              -- ("`temperature` is deprecated for this model"), but the adapter
+              -- only strips it for opus-4-7/opus-4-8/fable. Never send it.
+              schema = {
+                temperature = {
+                  enabled = function()
+                    return false
+                  end,
+                },
+              },
+            }) -- looks for env variable ANTHROPIC_API_KEY
           end,
         },
       },
@@ -62,6 +84,7 @@ return {
       { "<leader>ap", "<cmd>CodeCompanionActions<CR>", desc = "Action Palette" },
       { "<leader>ac", "<cmd>CodeCompanionChat Toggle<CR>", desc = "Toggle Chat" },
       { "<leader>aa", "<cmd>CodeCompanionChat Add<cr>", mode = "v", desc = "Add selection to CodeCompanion chat" },
+      { "<leader>as", "<cmd>CodeCompanionCLI Toggle<CR>", desc = "Toggle CLI" },
     },
     cmd = {
       "CodeCompanion",
