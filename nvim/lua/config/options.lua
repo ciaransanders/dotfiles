@@ -2,13 +2,14 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
-vim.opt.path:append("**") -- Search recursively in subdirectories
+-- Use basedpyright instead of pyright for python LSP
+vim.g.lazyvim_python_lsp = "basedpyright"
 
-vim.api.nvim_create_autocmd("BufEnter", {
-  callback = function()
-    vim.opt.formatoptions:remove({ "c", "r", "o" })
-  end,
-  desc = "Disable New Line Comment",
-})
+-- Search recursively in subdirectories
+vim.opt.path:append("**")
 
+-- Disable automatic comment continuation when entering a new line after a comment
+vim.opt.formatoptions:remove({ "c", "r", "o" })
+
+-- Type "cc" for CodeCompanion shortcut
 vim.cmd([[cab cc CodeCompanion]])
