@@ -47,7 +47,19 @@ return {
       adapters = {
         acp = {
           claude_code = function()
-            return require("codecompanion.adapters").extend("claude_code", {}) -- looks for env variable CLAUDE_CODE_OAUTH_TOKEN
+            return require("codecompanion.adapters").extend("claude_code", {
+              env = {
+                CLAUDE_CODE_OAUTH_TOKEN = "CLAUDE_CODE_PRO_SUBSCRIPTION_AUTH_TOKEN",
+                -- The spawned process inherits Neovim's env, which includes
+                -- ANTHROPIC_API_KEY (needed by the `anthropic` HTTP adapter). If
+                -- left set, Claude Code reports apiKeySource=ANTHROPIC_API_KEY
+                -- and can bill API credits. Blank it for THIS subprocess only so
+                -- auth is purely the OAuth token -> Pro subscription.
+                ANTHROPIC_API_KEY = function()
+                  return ""
+                end,
+              },
+            })
           end,
         },
         http = {
