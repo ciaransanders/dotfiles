@@ -1,0 +1,18 @@
+alias therm='cd ~/thermaline/ ; eval $(poetry env activate) ; source bin/debug.sh'
+alias um='cd ~/um/ ; eval $(poetry env activate) ; source bin/debug.sh'
+alias ls="ls --color=auto"
+alias gyb='~/bin/gyb/gyb'
+alias rd=reset_dev_server.sh
+
+# music
+alias turtle='setsid mpv "https://www.youtube.com/watch?v=ks7-StxAuR8"'
+alias worship='setsid mpv "https://www.youtube.com/watch?v=2WxTPNdsCxU"'
+alias puggin='setsid mpv "https://www.youtube.com/watch?v=yeU4SzlNwOs"'
+alias lotr='setsid mpv "https://www.youtube.com/watch?v=fnVlN327sn0"'
+alias sixpack='setsid mpv "https://www.youtube.com/watch?v=ERjdQlbB9xM"'
+alias worship_coachella='setsid mpv "https://www.youtube.com/watch?v=hAQlETXIc-Y"'
+alias fred='setsid mpv "https://www.youtube.com/watch?v=6MAzUT1YhWE"'
+alias low_poly_beach='setsid mpv "https://www.youtube.com/watch?v=kQMP0G3YlcA"'
+
+# Claude Code aliases
+alias ai='nvim -c "CodeCompanionChat" -c "only"'

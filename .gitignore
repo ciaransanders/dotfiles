@@ -39,5 +39,7 @@ google-chrome/*
 .avalonia-build-tasks/*
 mozilla/*
 mpv/*
+user-dirs.dirs
+user-dirs.locale
 
 CLAUDE.md
