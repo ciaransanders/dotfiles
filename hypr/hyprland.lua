@@ -354,7 +354,7 @@ hl.bind(shiftMod .. " + " .. "PRINT", hl.dsp.exec_cmd("hyprshot -z -m output"))
 hl.window_rule({
 	name = "bitwarden-windowrule",
 	match = {
-		class = ". *Bitwarden.*",
+		class = ".*Bitwarden.*",
 	},
 	stay_focused = true,
 })
@@ -362,7 +362,7 @@ hl.window_rule({
 hl.window_rule({
 	name = "obsidian-windowrule",
 	match = {
-		class = ". *obsidian.*",
+		class = ".*obsidian.*",
 	},
 	stay_focused = true,
 })
@@ -370,7 +370,7 @@ hl.window_rule({
 hl.window_rule({
 	name = "runelite-windowrule",
 	match = {
-		class = ". *Runelite.*",
+		class = ".*RuneLite.*",
 	},
 	float = true,
 })
@@ -378,7 +378,7 @@ hl.window_rule({
 hl.window_rule({
 	name = "bolt-launcher-windowrule",
 	match = {
-		class = ". *bolt.*",
+		class = ".*bolt.*",
 	},
 	float = true,
 	center = true,
@@ -388,9 +388,9 @@ hl.window_rule({
 hl.window_rule({
 	name = "ghostty-windowrule",
 	match = {
-		class = ". *ghostty.*",
+		class = ".*ghostty.*",
 	},
-	opacity = 0.6,
+	opacity = "1 0.6",
 	border_color = "rgb(EBDBB2)",
 	border_size = 1,
 })
@@ -400,5 +400,5 @@ hl.window_rule({
 	match = {
 		title = "^(.*cbonsai.*)$",
 	},
-	opacity = 1,
+	opacity = "1.0",
 })
