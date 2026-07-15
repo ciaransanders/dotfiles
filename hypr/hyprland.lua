@@ -201,7 +201,7 @@ local shiftMod = "SHIFT"
 
 hl.bind(mainMod .. " + " .. "C", hl.dsp.window.close())
 hl.bind(mainMod .. " + " .. "V", hl.dsp.window.float())
-hl.bind(mainMod .. " + " .. "F", hl.dsp.window.fullscreen())
+hl.bind(mainMod .. " + " .. "F", hl.dsp.window.fullscreen({ mode = 1 }))
 
 -- Run ghostty
 hl.bind(mainMod .. " + " .. "Q", hl.dsp.exec_cmd("uwsm app -- ghostty"))
