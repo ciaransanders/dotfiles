@@ -17,6 +17,7 @@ return {
             auto_generate_title = true,
             title_generation_opts = {
               adapter = "anthropic",
+              model = "claude-haiku-4-5",
             },
           },
         },
