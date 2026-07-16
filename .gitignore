@@ -41,5 +41,9 @@ mozilla/*
 mpv/*
 user-dirs.dirs
 user-dirs.locale
+Jagex Launcher/
+gh/
+git/
+**/.claude/settings.local.json
 
 CLAUDE.md
