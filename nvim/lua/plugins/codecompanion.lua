@@ -6,6 +6,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "ravitemer/codecompanion-history.nvim",
+      "lalitmee/codecompanion-spinners.nvim",
     },
     opts = {
       extensions = {
@@ -19,6 +20,12 @@ return {
               adapter = "anthropic",
               model = "claude-haiku-4-5",
             },
+          },
+        },
+        spinner = {
+          opts = {
+            style = "snacks",
+            default_icon = "󰚩",
           },
         },
       },

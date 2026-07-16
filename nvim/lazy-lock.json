@@ -6,6 +6,7 @@
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
   "catppuccin": { "branch": "main", "commit": "05e8787020dcfdb937bf2ff23855ea2415b4e072" },
   "codecompanion-history.nvim": { "branch": "main", "commit": "bc1b4fe06eaaf0aa2399be742e843c22f7f1652a" },
+  "codecompanion-spinners.nvim": { "branch": "main", "commit": "f613a543ca8c7ba1686830c6bb1a10d15a2e1942" },
   "codecompanion.nvim": { "branch": "main", "commit": "a8a754491999d97695d6134e8d3d98effe6b2a98" },
   "conform.nvim": { "branch": "master", "commit": "619363c30309d29ffa631e67c8183f2a72caa373" },
   "dial.nvim": { "branch": "master", "commit": "f2634758455cfa52a8acea6f142dcd6271a1bf57" },
