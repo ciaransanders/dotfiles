@@ -100,7 +100,7 @@ return {
       { "<leader>ap", "<cmd>CodeCompanionActions<CR>", desc = "Action Palette" },
       { "<leader>ai", "<cmd>CodeCompanionChat Toggle<CR>", desc = "Toggle Chat" },
       { "<leader>aa", "<cmd>CodeCompanionChat Add<cr>", mode = "v", desc = "Add selection to CodeCompanion chat" },
-      { "<leader>ac", "<cmd>CodeCompanionCLI Toggle<CR>", desc = "Toggle CLI" },
+      { "<leader>ac", "<cmd>CodeCompanionCLI<CR>", desc = "Toggle CLI" },
     },
     cmd = {
       "CodeCompanion",
