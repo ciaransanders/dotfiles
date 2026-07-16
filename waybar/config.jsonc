@@ -6,7 +6,7 @@
   "fixed-center": true,
   "modules-left": [
     "custom/launcher",
-    "hyprland/workspaces"
+    "ext/workspaces"
   ],
   "modules-center": [
     "clock",
@@ -74,7 +74,7 @@
     "on-click": "$HOME/.config/eww/powermenu/powermenu.sh",
     "tooltip": false
   },
-  "hyprland/workspaces": {
+  "ext/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
     "format-icons": {
