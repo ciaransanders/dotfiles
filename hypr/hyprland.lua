@@ -370,9 +370,11 @@ hl.window_rule({
 hl.window_rule({
 	name = "runelite-windowrule",
 	match = {
-		class = ".*RuneLite.*",
+		class = "net-runelite-.*", -- matches BOTH launcher-Launcher and client-RuneLite
 	},
 	float = true,
+	center = true,
+	size = { 1000, 800 }, -- pins Hyprland's saved floating size so movewindow can't revert it
 })
 
 hl.window_rule({
