@@ -30,6 +30,7 @@
   "mini.map": { "branch": "main", "commit": "7e836e3679387012f84f2a389ace740d57a93a37" },
   "mini.pairs": { "branch": "main", "commit": "b9aada8c0e59f2b938e98fbf4eae0799eba96ad9" },
   "mini.surround": { "branch": "main", "commit": "8d5d0c5aa92449368ac251e85451d79d8f69d296" },
+  "neoconf.nvim": { "branch": "main", "commit": "3990883eae127c6b8f6c1ed5cd9e261dd42baba0" },
   "no-neck-pain.nvim": { "branch": "main", "commit": "4bc52782524fd50c5658685d584df6fa48fe49f9" },
   "noice.nvim": { "branch": "main", "commit": "7bfd942445fb63089b59f97ca487d605e715f155" },
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
