@@ -3,7 +3,7 @@ return {
   opts = {
     formatters_by_ft = {
       htmldjango = { "djhtml" },
-      python = { "isort" },
+      python = { "ruff_organize_imports", "ruff_format" },
     },
     formatters = {
       djhtml = {
