@@ -99,6 +99,11 @@ return {
       display = {
         chat = {
           show_tools_processing = true,
+          window = {
+            -- Set env variable CC_CHAT_ONLY=1 to launch a chat only buffer.
+            -- Example use case: in ~/.aliases => alias ai='CC_CHAT_ONLY=1 nvim -c "CodeCompanionChat"'
+            layout = vim.env.CC_CHAT_ONLY == "1" and "buffer" or "vertical",
+          },
         },
         diff = {
           provider = "inline",
