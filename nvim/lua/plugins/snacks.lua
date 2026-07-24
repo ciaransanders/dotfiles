@@ -11,6 +11,14 @@ return {
       picker = {
         sources = {
           explorer = {
+            win = {
+              list = {
+                keys = {
+                  ["y"] = "copy_file_name",
+                  ["Y"] = "copy_relative_path",
+                },
+              },
+            },
             jump = {
               close = false,
             },
@@ -35,6 +43,23 @@ return {
           exclude_toggle = "e",
         },
         actions = {
+          -- copy just the file name (basename) to the system clipboard
+          copy_file_name = function(_, item)
+            if not item then
+              return
+            end
+            local name = vim.fn.fnamemodify(item.file, ":t:r")
+            vim.fn.setreg("+", name)
+            Snacks.notify.info("Yanked file name: " .. name)
+          end,
+          copy_relative_path = function(_, item)
+            if not item then
+              return
+            end
+            local path = vim.fn.fnamemodify(item.file, ":.:r")
+            vim.fn.setreg("+", path)
+            Snacks.notify.info("Yanked path: " .. path)
+          end,
           toggle_excluded = function(p)
             -- Store the initial excluded files as the default
             if not p.default_exclude then
