@@ -81,6 +81,16 @@ return {
                     return false
                   end,
                 },
+                -- Stop the adapter auto-enabling adaptive thinking. This adapter
+                -- is used by inline edits and by the history auto title-generation
+                -- (claude-haiku-4-5), whose API rejects `thinking.type="adaptive"`
+                -- ("adaptive thinking is not supported on this model"). Off by
+                -- default; still toggleable per-chat.
+                extended_thinking = {
+                  default = function()
+                    return false
+                  end,
+                },
               },
             }) -- looks for env variable ANTHROPIC_API_KEY
           end,
