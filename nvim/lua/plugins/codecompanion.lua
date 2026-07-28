@@ -121,6 +121,7 @@ return {
     keys = {
       { "<leader>ap", "<cmd>CodeCompanionActions<CR>", desc = "Action Palette" },
       { "<leader>ai", "<cmd>CodeCompanionChat Toggle<CR>", desc = "Toggle Chat" },
+      { "<leader>an", "<cmd>CodeCompanionChat<CR>", desc = "New Chat" },
       { "<leader>aa", "<cmd>CodeCompanionChat Add<cr>", mode = "v", desc = "Add selection to CodeCompanion chat" },
       { "<leader>ac", "<cmd>CodeCompanionCLI<CR>", desc = "Toggle CLI" },
     },
