@@ -17,7 +17,7 @@ return {
             picker = "snacks",
             auto_generate_title = true,
             title_generation_opts = {
-              adapter = "anthropic",
+              adapter = { name = "anthropic", model = "claude-haiku-4-5" },
               model = "claude-haiku-4-5",
             },
           },
