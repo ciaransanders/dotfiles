@@ -398,6 +398,16 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "zathura-windowrule",
+	match = {
+		class = ".*zathura.*",
+	},
+	opacity = "1 0.6",
+	border_color = "rgb(EBDBB2)",
+	border_size = 1,
+})
+
+hl.window_rule({
 	name = "cbonsai-windowrule",
 	match = {
 		title = "^(.*cbonsai.*)$",
