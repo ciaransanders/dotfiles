@@ -13,7 +13,6 @@ return {
         IlluminatedWordText = { underline = true },
         IlluminatedWordRead = { underline = true },
         IlluminatedWordWrite = { underline = true },
-        IncSearch = { bold = true },
         StatusLine = { bg = "NONE" },
         CursorLine = { bg = "#282828" },
         CursorLineNr = { bg = "NONE" },
