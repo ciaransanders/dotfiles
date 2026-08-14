@@ -263,6 +263,12 @@ hl.workspace_rule({
 	gaps_in = 50,
 	gaps_out = { top = 200, right = 450, bottom = 200, left = 450 },
 })
+hl.workspace_rule({
+	workspace = "special:bitwarden",
+	monitor = "eDP-1",
+	gaps_in = 50,
+	gaps_out = { top = 150, right = 250, bottom = 150, left = 250 },
+})
 hl.bind(mainMod .. " + " .. "P", hl.dsp.exec_cmd("[workspace special:bitwarden silent] bitwarden-desktop"))
 hl.bind(mainMod .. " + " .. "P", hl.dsp.workspace.toggle_special("bitwarden"))
 
