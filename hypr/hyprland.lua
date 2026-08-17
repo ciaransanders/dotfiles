@@ -258,16 +258,12 @@ hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 9, hl.dsp.window.move({ workspac
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 0, hl.dsp.window.move({ workspace = 10 }))
 
 -- Special workspace for Bitwarden
+-- Size comes from the window rule below (monitor-relative), not from gaps:
+-- workspace rules are keyed only on the workspace, so they can't vary per monitor.
 hl.workspace_rule({
 	workspace = "special:bitwarden",
 	gaps_in = 50,
-	gaps_out = { top = 200, right = 450, bottom = 200, left = 450 },
-})
-hl.workspace_rule({
-	workspace = "special:bitwarden",
-	monitor = "eDP-1",
-	gaps_in = 50,
-	gaps_out = { top = 150, right = 250, bottom = 150, left = 250 },
+	gaps_out = { top = 200, right = 350, bottom = 200, left = 350 },
 })
 hl.bind(mainMod .. " + " .. "P", hl.dsp.exec_cmd("[workspace special:bitwarden silent] bitwarden-desktop"))
 hl.bind(mainMod .. " + " .. "P", hl.dsp.workspace.toggle_special("bitwarden"))
