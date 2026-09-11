@@ -23,7 +23,7 @@ remmina/*
 spicetify/*
 spotify/*
 systemd/*
-uwsm/*
+uwsm/default-id
 nvim/.gitignore
 LICENSE
 README.md
