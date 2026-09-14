@@ -8,6 +8,7 @@ return {
         },
       },
       scroll = { enabled = false },
+      image = { enabled = true },
       picker = {
         sources = {
           explorer = {
