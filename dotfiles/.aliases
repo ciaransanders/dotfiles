@@ -3,6 +3,7 @@ alias um='cd ~/um/ ; eval $(poetry env activate) ; source bin/debug.sh'
 alias ls="ls --color=auto"
 alias gyb='~/bin/gyb/gyb'
 alias rd=reset_dev_server.sh
+alias it='cd ~/documents/thermaline/it/'
 
 # music
 alias turtle='setsid mpv "https://www.youtube.com/watch?v=ks7-StxAuR8"'
@@ -15,4 +16,4 @@ alias fred='setsid mpv "https://www.youtube.com/watch?v=6MAzUT1YhWE"'
 alias low_poly_beach='setsid mpv "https://www.youtube.com/watch?v=kQMP0G3YlcA"'
 
 # Claude Code aliases
-alias ai='nvim -c "CodeCompanionChat" -c "only"'
+alias ai='CC_CHAT_ONLY=1 nvim -c "CodeCompanionChat"'

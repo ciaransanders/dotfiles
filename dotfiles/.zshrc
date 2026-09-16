@@ -15,7 +15,7 @@ bindkey -v '^?' backward-delete-char
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/stinkydinky/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
 compinit
@@ -30,7 +30,8 @@ fi
 source $HOME/.aliases
 
 # Extra paths
-path+=/home/stinkydinky/.local/bin
+path+=("$HOME/.local/bin")
+path+=("$HOME/bin")
 
 # Disable showing the current venv in prompt
 VIRTUAL_ENV_DISABLE_PROMPT=1
@@ -65,8 +66,5 @@ function y() {
 # Environment variables
 export EDITOR=nvim
 
-# Claude Code API Token
-export CLAUDE_CODE_OAUTH_TOKEN=""
-
-# Anthropic API Key
-export ANTHROPIC_API_KEY=""
+# Machine-local secrets, not tracked
+[[ -f ~/.config/dotfiles/env.private ]] && source ~/.config/dotfiles/env.private
