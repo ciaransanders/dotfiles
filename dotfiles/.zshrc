@@ -52,7 +52,7 @@ PS1='%F{3}%B%~%b%f ${vcs_info_msg_0_}%f$ '
 # pyenv setup
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+command -v pyenv >/dev/null && eval "$(pyenv init - zsh)"
 
 # Yazi shell wrapper
 function y() {
