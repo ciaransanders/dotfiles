@@ -204,13 +204,13 @@ hl.bind(mainMod .. " + " .. "V", hl.dsp.window.float())
 hl.bind(mainMod .. " + " .. "F", hl.dsp.window.fullscreen({ mode = 1 }))
 
 -- Run ghostty
-hl.bind(mainMod .. " + " .. "Q", hl.dsp.exec_cmd("uwsm app -- ghostty"))
+hl.bind(mainMod .. " + " .. "Q", hl.dsp.exec_cmd("ghostty"))
 
 -- Run rofi
-hl.bind(mainMod .. " + " .. "R", hl.dsp.exec_cmd("uwsm app -- rofi -show drun"))
+hl.bind(mainMod .. " + " .. "R", hl.dsp.exec_cmd("rofi -show drun"))
 
 -- Run rofimoji
-hl.bind(mainMod .. " + " .. "E", hl.dsp.exec_cmd("uwsm app -- rofi -modi emoji:rofimoji -show emoji"))
+hl.bind(mainMod .. " + " .. "E", hl.dsp.exec_cmd("rofi -modi emoji:rofimoji -show emoji"))
 
 -- Toggle dunst notifications
 hl.bind(mainMod .. " + " .. "N", hl.dsp.exec_cmd("dunstctl set-paused toggle"))
