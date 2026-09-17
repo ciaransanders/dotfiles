@@ -7,18 +7,32 @@
 
 -- Framework Laptop Screen
 hl.monitor({
-	output = "eDP-1",
-	mode = "2256x1504@60",
-	position = "auto",
-	scale = 1.333,
+  output = "eDP-1",
+  mode = "2256x1504@60",
+  position = "auto",
+  scale = 1.333,
 })
 
--- Asus monitor
+-- Asus monitors
+-- hl.monitor({
+--   output = "DP-4",
+--   mode = "2560x1440@60",
+--   position = "auto",
+--   scale = 1,
+-- })
+
+-- Home Setup w/ Stacked Monitors
 hl.monitor({
-	output = "DP-4",
-	mode = "2560x1440@60",
-	position = "auto",
-	scale = 1,
+  output = "HDMI-A-2",
+  mode = "2560x1440@60",
+  position = "0x0",
+  scale = 1,
+})
+hl.monitor({
+  output = "HDMI-A-1",
+  mode = "1920x1080@165",
+  position = "auto-center-up",
+  scale = 1,
 })
 
 -- For mirroring my laptop to my home TV
@@ -51,8 +65,8 @@ hl.monitor({
 --################
 
 hl.on("hyprland.start", function()
-	hl.exec_cmd("$HOME/.config/hypr/scripts/hyprstartup.sh")
-	hl.exec_cmd("[workspace special:obsidian silent] obsidian")
+  hl.exec_cmd("$HOME/.config/hypr/scripts/hyprstartup.sh")
+  hl.exec_cmd("[workspace special:obsidian silent] obsidian")
 end)
 
 --############################
@@ -71,84 +85,84 @@ hl.env("HYPRCURSOR_SIZE", 24)
 --## LOOK AND FEEL ###
 --####################
 hl.config({
-	general = {
-		gaps_in = 10,
-		gaps_out = 30,
-		border_size = 0,
-		-- https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
-		-- col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-		-- col.inactive_border = rgba(595959aa)
-		-- Set to true enable resizing windows by clicking and dragging on borders and gaps
-		resize_on_border = false,
-		-- Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
-		allow_tearing = false,
-		layout = "dwindle",
-		no_focus_fallback = true,
-	},
+  general = {
+    gaps_in = 10,
+    gaps_out = 30,
+    border_size = 0,
+    -- https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
+    -- col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+    -- col.inactive_border = rgba(595959aa)
+    -- Set to true enable resizing windows by clicking and dragging on borders and gaps
+    resize_on_border = false,
+    -- Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
+    allow_tearing = false,
+    layout = "dwindle",
+    no_focus_fallback = true,
+  },
 })
 
 hl.config({
-	decoration = {
-		rounding = 12,
-		rounding_power = 2,
-		-- Change transparency of focused and unfocused windows
-		-- active_opacity = .9
-		-- inactive_opacity = .6
-		shadow = {
-			enabled = false,
-			range = 4,
-			render_power = 3,
-			color = "rgba(1a1a1aee)",
-		},
-		-- https://wiki.hyprland.org/Configuring/Variables/#blur
-		blur = {
-			enabled = false,
-		},
-	},
+  decoration = {
+    rounding = 12,
+    rounding_power = 2,
+    -- Change transparency of focused and unfocused windows
+    -- active_opacity = .9
+    -- inactive_opacity = .6
+    shadow = {
+      enabled = false,
+      range = 4,
+      render_power = 3,
+      color = "rgba(1a1a1aee)",
+    },
+    -- https://wiki.hyprland.org/Configuring/Variables/#blur
+    blur = {
+      enabled = false,
+    },
+  },
 })
 
 hl.config({
-	dwindle = {
-		-- You probably want this
-		preserve_split = true,
-	},
+  dwindle = {
+    -- You probably want this
+    preserve_split = true,
+  },
 })
 
 hl.config({
-	master = {
-		new_status = "master",
-	},
+  master = {
+    new_status = "master",
+  },
 })
 
 hl.config({
-	misc = {
-		-- Set to 0 or 1 to disable the anime mascot wallpapers
-		force_default_wallpaper = 1,
-		-- If true disables the random hyprland logo / anime girl background. :(
-		disable_hyprland_logo = true,
-	},
+  misc = {
+    -- Set to 0 or 1 to disable the anime mascot wallpapers
+    force_default_wallpaper = 1,
+    -- If true disables the random hyprland logo / anime girl background. :(
+    disable_hyprland_logo = true,
+  },
 })
 
 hl.config({
-	debug = {
-		-- set to false because it seems to cause issue with the integrated graphics on my Framework 13 laptop
-		vfr = false,
-	},
+  debug = {
+    -- set to false because it seems to cause issue with the integrated graphics on my Framework 13 laptop
+    vfr = false,
+  },
 })
 
 hl.config({
-	cursor = {
-		inactive_timeout = 1,
-	},
+  cursor = {
+    inactive_timeout = 1,
+  },
 })
 
 --#################
 --## ANIMATIONS ###
 --#################
 hl.config({
-	animations = {
-		enabled = true,
-	},
+  animations = {
+    enabled = true,
+  },
 })
 
 hl.curve("easeOutQuint", { type = "bezier", points = { { 0.23, 1 }, { 0.32, 1 } } })
@@ -179,15 +193,15 @@ hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "a
 --############
 
 hl.config({
-	input = {
-		kb_layout = "us",
-		follow_mouse = 1,
-		sensitivity = -0.15,
-		accel_profile = "flat",
-		touchpad = {
-			natural_scroll = false,
-		},
-	},
+  input = {
+    kb_layout = "us",
+    follow_mouse = 1,
+    sensitivity = -0.15,
+    accel_profile = "flat",
+    touchpad = {
+      natural_scroll = false,
+    },
+  },
 })
 
 --##################
@@ -217,8 +231,8 @@ hl.bind(mainMod .. " + " .. "N", hl.dsp.exec_cmd("dunstctl set-paused toggle"))
 
 -- Eww dashboard toggle
 hl.bind(
-	mainMod .. " + " .. "D",
-	hl.dsp.exec_cmd("eww open --toggle dashboard --screen $(hyprctl activewindow -j| jq '.monitor')")
+  mainMod .. " + " .. "D",
+  hl.dsp.exec_cmd("eww open --toggle dashboard --screen $(hyprctl activewindow -j| jq '.monitor')")
 )
 
 -- Eww powermenu toggle
@@ -261,18 +275,18 @@ hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 0, hl.dsp.window.move({ workspac
 -- Size comes from the window rule below (monitor-relative), not from gaps:
 -- workspace rules are keyed only on the workspace, so they can't vary per monitor.
 hl.workspace_rule({
-	workspace = "special:bitwarden",
-	gaps_in = 50,
-	gaps_out = { top = 200, right = 350, bottom = 200, left = 350 },
+  workspace = "special:bitwarden",
+  gaps_in = 50,
+  gaps_out = { top = 200, right = 350, bottom = 200, left = 350 },
 })
 hl.bind(mainMod .. " + " .. "P", hl.dsp.exec_cmd("[workspace special:bitwarden silent] bitwarden-desktop"))
 hl.bind(mainMod .. " + " .. "P", hl.dsp.workspace.toggle_special("bitwarden"))
 
 -- Special workspace for Obsidian
 hl.workspace_rule({
-	workspace = "special:obsidian",
-	gaps_in = 50,
-	gaps_out = { top = 100, right = 250, bottom = 100, left = 250 },
+  workspace = "special:obsidian",
+  gaps_in = 50,
+  gaps_out = { top = 100, right = 250, bottom = 100, left = 250 },
 })
 hl.bind(mainMod .. " + " .. "O", hl.dsp.workspace.toggle_special("obsidian"))
 
@@ -307,33 +321,33 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 
 -- Ignore maximize requests from apps. You'll probably like this.
 hl.window_rule({
-	name = "windowrule-1",
-	match = {
-		class = ".*",
-	},
-	suppress_event = "maximize",
-	idle_inhibit = "fullscreen",
+  name = "windowrule-1",
+  match = {
+    class = ".*",
+  },
+  suppress_event = "maximize",
+  idle_inhibit = "fullscreen",
 })
 
 -- Fix some dragging issues with XWayland
 hl.window_rule({
-	name = "windowrule-2",
-	match = {
-		class = "^$",
-		title = "^$",
-		xwayland = 1,
-		float = 1,
-		fullscreen = 0,
-		pin = 0,
-	},
-	no_focus = true,
+  name = "windowrule-2",
+  match = {
+    class = "^$",
+    title = "^$",
+    xwayland = 1,
+    float = 1,
+    fullscreen = 0,
+    pin = 0,
+  },
+  no_focus = true,
 })
 
 -- unscale XWayland
 hl.config({
-	xwayland = {
-		force_zero_scaling = true,
-	},
+  xwayland = {
+    force_zero_scaling = true,
+  },
 })
 
 --#############################
@@ -354,65 +368,65 @@ hl.bind(shiftMod .. " + " .. "PRINT", hl.dsp.exec_cmd("hyprshot -z -m output"))
 --#############################
 
 hl.window_rule({
-	name = "bitwarden-windowrule",
-	match = {
-		class = ".*Bitwarden.*",
-	},
-	stay_focused = true,
+  name = "bitwarden-windowrule",
+  match = {
+    class = ".*Bitwarden.*",
+  },
+  stay_focused = true,
 })
 
 hl.window_rule({
-	name = "obsidian-windowrule",
-	match = {
-		class = ".*obsidian.*",
-	},
-	stay_focused = true,
+  name = "obsidian-windowrule",
+  match = {
+    class = ".*obsidian.*",
+  },
+  stay_focused = true,
 })
 
 hl.window_rule({
-	name = "runelite-windowrule",
-	match = {
-		class = "net-runelite-.*", -- matches BOTH launcher-Launcher and client-RuneLite
-	},
-	float = true,
-	center = true,
-	size = { 1000, 800 }, -- pins Hyprland's saved floating size so movewindow can't revert it
+  name = "runelite-windowrule",
+  match = {
+    class = "net-runelite-.*", -- matches BOTH launcher-Launcher and client-RuneLite
+  },
+  float = true,
+  center = true,
+  size = { 1000, 800 }, -- pins Hyprland's saved floating size so movewindow can't revert it
 })
 
 hl.window_rule({
-	name = "bolt-launcher-windowrule",
-	match = {
-		class = ".*bolt.*",
-	},
-	float = true,
-	center = true,
-	size = { "(monitor_w/2.2)", "(monitor_h/1.8)" },
+  name = "bolt-launcher-windowrule",
+  match = {
+    class = ".*bolt.*",
+  },
+  float = true,
+  center = true,
+  size = { "(monitor_w/2.2)", "(monitor_h/1.8)" },
 })
 
 hl.window_rule({
-	name = "ghostty-windowrule",
-	match = {
-		class = ".*ghostty.*",
-	},
-	opacity = "1 0.6",
-	border_color = "rgb(EBDBB2)",
-	border_size = 1,
+  name = "ghostty-windowrule",
+  match = {
+    class = ".*ghostty.*",
+  },
+  opacity = "1 0.6",
+  border_color = "rgb(EBDBB2)",
+  border_size = 1,
 })
 
 hl.window_rule({
-	name = "zathura-windowrule",
-	match = {
-		class = ".*zathura.*",
-	},
-	opacity = "1 0.6",
-	border_color = "rgb(EBDBB2)",
-	border_size = 1,
+  name = "zathura-windowrule",
+  match = {
+    class = ".*zathura.*",
+  },
+  opacity = "1 0.6",
+  border_color = "rgb(EBDBB2)",
+  border_size = 1,
 })
 
 hl.window_rule({
-	name = "cbonsai-windowrule",
-	match = {
-		title = "^(.*cbonsai.*)$",
-	},
-	opacity = "1.0",
+  name = "cbonsai-windowrule",
+  match = {
+    title = "^(.*cbonsai.*)$",
+  },
+  opacity = "1.0",
 })
