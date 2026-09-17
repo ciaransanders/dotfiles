@@ -21,9 +21,9 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# Hyprland settings to use uwsm
-if uwsm check may-start 1>/dev/null && uwsm select; then
-	exec uwsm start default
+# Hyprland
+if [ -z "${WAYLAND_DISPLAY}" ] && [ "$(tty)" = "/dev/tty1" ]; then
+  dbus-run-session start-hyprland
 fi
 
 # Aliases
