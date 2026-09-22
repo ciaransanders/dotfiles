@@ -23,7 +23,7 @@ compinit
 
 # Hyprland
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "$(tty)" = "/dev/tty1" ]; then
-  dbus-run-session start-hyprland
+  start-hyprland
 fi
 
 # Aliases
