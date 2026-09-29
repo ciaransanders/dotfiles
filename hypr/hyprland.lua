@@ -79,6 +79,10 @@ hl.env("XCURSOR_SIZE", 24)
 
 hl.env("HYPRCURSOR_SIZE", 24)
 
+-- hyprland's `env` takes a literal value, so expand the command here instead
+local pictures = io.popen("xdg-user-dir PICTURES"):read("*l")
+hl.env("HYPRSHOT_DIR", pictures .. "/screenshots")
+
 --##################
 --## PERMISSIONS ###
 --##################
