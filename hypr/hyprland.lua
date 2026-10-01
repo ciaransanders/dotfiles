@@ -53,6 +53,7 @@ hl.monitor({
 hl.on("hyprland.start", function()
 	hl.exec_cmd("$HOME/.config/hypr/scripts/hyprstartup.sh")
 	hl.exec_cmd("[workspace special:obsidian silent] obsidian")
+	hl.exec_cmd("hyprsunset")
 end)
 
 --############################
