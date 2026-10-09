@@ -45,5 +45,6 @@ Jagex Launcher/
 gh/
 git/
 **/.claude/settings.local.json
+onlyoffice/*
 
 CLAUDE.md
