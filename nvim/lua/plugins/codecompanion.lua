@@ -143,8 +143,10 @@ return {
       local function excerpt(msg, limit)
         local role = msg.role == config.constants.USER_ROLE and "User" or "Assistant"
         local content = vim.trim(msg.content)
-        if #content > limit then
-          content = content:sub(1, limit) .. " [truncated]"
+        -- Truncate by characters, not bytes: string.sub can split a multi-byte
+        -- UTF-8 char (em dash, emoji, icons), which the API rejects as invalid JSON.
+        if vim.fn.strchars(content) > limit then
+          content = vim.fn.strcharpart(content, 0, limit) .. " [truncated]"
         end
         return role .. ": " .. content
       end
