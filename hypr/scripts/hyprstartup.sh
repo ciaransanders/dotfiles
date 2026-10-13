@@ -8,7 +8,7 @@ done
 sleep 1
 
 # Copy current wallpaper to .current_wall
-WALLPAPER=$(hyprctl hyprpaper listactive | sed 's/^[^=]*= *//g' | head -n 1)
+WALLPAPER=$(hyprctl hyprpaper listactive | sed -E 's/^[^:=]*[:=] *//' | head -n 1)
 cp $WALLPAPER ~/.config/hypr/.current_wall
 
 # Run eww daemon if not running already
