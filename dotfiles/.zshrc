@@ -21,6 +21,9 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# Machine-local env, sourced before Hyprland starts so it inherits it
+[[ -f ~/.config/dotfiles/env.private ]] && source ~/.config/dotfiles/env.private
+
 # Hyprland
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "$(tty)" = "/dev/tty1" ]; then
   start-hyprland
@@ -65,6 +68,3 @@ function y() {
 
 # Environment variables
 export EDITOR=nvim
-
-# Machine-local secrets, not tracked
-[[ -f ~/.config/dotfiles/env.private ]] && source ~/.config/dotfiles/env.private
