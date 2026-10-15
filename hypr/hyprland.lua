@@ -199,6 +199,28 @@ hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = 1 }))
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
+-- Toggle big outer gaps on the active workspace, so a lone window shrinks into a centered box.
+-- Gaps are per-workspace, so this creates a workspace rule on first use and toggles it after that.
+local focusRules = {}
+hl.bind(mainMod .. " + G", function()
+	local ws = hl.get_active_workspace()
+	if not ws then
+		return
+	end
+	local rule = focusRules[ws.name]
+	if rule then
+		rule:set_enabled(not rule:is_enabled())
+	else
+		local mon = ws.monitor or hl.get_active_monitor()
+		local w, h = mon.width / mon.scale, mon.height / mon.scale
+		local x, y = math.floor(w * 0.2), math.floor(h * 0.12)
+		focusRules[ws.name] = hl.workspace_rule({
+			workspace = ws.name,
+			gaps_out = { top = y, right = x, bottom = y, left = x },
+		})
+	end
+end)
+
 -- Apps
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("ghostty"))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("rofi -show drun"))
