@@ -38,6 +38,7 @@ libreoffice/*
 google-chrome/*
 .avalonia-build-tasks/*
 mozilla/*
+zen/*
 mpv/*
 user-dirs.dirs
 user-dirs.locale
