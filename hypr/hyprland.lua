@@ -5,7 +5,7 @@
 --## MONITORS ###
 --###############
 
--- Framework Laptop Screen
+-- Framework laptop screen
 hl.monitor({
 	output = "eDP-1",
 	mode = "2256x1504@60",
@@ -13,15 +13,7 @@ hl.monitor({
 	scale = 1.333,
 })
 
--- Asus monitors
--- hl.monitor({
---   output = "DP-4",
---   mode = "2560x1440@60",
---   position = "auto",
---   scale = 1,
--- })
-
--- Home Setup w/ Stacked Monitors
+-- Home setup: 1440p on top, 1080p@165 stacked below
 hl.monitor({
 	output = "HDMI-A-2",
 	mode = "2560x1440@60",
@@ -35,15 +27,15 @@ hl.monitor({
 	scale = 1,
 })
 
--- For mirroring my laptop to my home TV
+-- Asus monitor
 -- hl.monitor({
--- 	output = "eDP-1",
--- 	mode = "1920x1080@60",
+-- 	output = "DP-4",
+-- 	mode = "2560x1440@60",
 -- 	position = "auto",
--- 	scale = 1.175,
+-- 	scale = 1,
 -- })
 
--- AOC Curved Montior
+-- AOC curved monitor
 -- hl.monitor({
 -- 	output = "DP-4",
 -- 	mode = "1920x1080@165.00",
@@ -51,14 +43,34 @@ hl.monitor({
 -- 	scale = 1,
 -- })
 
--- War Room TV / Home TV
--- monitor=DP-4,1920x1080@60,0x0,1,mirror,eDP-1
+-- Laptop screen when mirroring to the home TV
+-- hl.monitor({
+-- 	output = "eDP-1",
+-- 	mode = "1920x1080@60",
+-- 	position = "auto",
+-- 	scale = 1.175,
+-- })
+
+-- War room TV / home TV, mirroring eDP-1
 -- hl.monitor({
 -- 	output = "DP-4",
 -- 	mode = "1920x1080@60",
 -- 	position = "mirror",
 -- 	scale = 1,
 -- })
+
+--############################
+--## ENVIRONMENT VARIABLES ###
+--############################
+
+hl.env("XCURSOR_SIZE", 24)
+hl.env("HYPRCURSOR_SIZE", 24)
+
+-- hyprland's `env` takes a literal value, so expand the command here instead
+local xdg = io.popen("xdg-user-dir PICTURES")
+local pictures = xdg:read("*l")
+xdg:close()
+hl.env("HYPRSHOT_DIR", pictures .. "/screenshots")
 
 --################
 --## AUTOSTART ###
@@ -72,37 +84,15 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("hyprpaper")
 end)
 
---############################
---## ENVIRONMENT VARIABLES ###
---############################
-
-hl.env("XCURSOR_SIZE", 24)
-
-hl.env("HYPRCURSOR_SIZE", 24)
-
--- hyprland's `env` takes a literal value, so expand the command here instead
-local pictures = io.popen("xdg-user-dir PICTURES"):read("*l")
-hl.env("HYPRSHOT_DIR", pictures .. "/screenshots")
-
---##################
---## PERMISSIONS ###
---##################
-
 --####################
 --## LOOK AND FEEL ###
 --####################
+
 hl.config({
 	general = {
 		gaps_in = 10,
 		gaps_out = 30,
 		border_size = 0,
-		-- https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
-		-- col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-		-- col.inactive_border = rgba(595959aa)
-		-- Set to true enable resizing windows by clicking and dragging on borders and gaps
-		resize_on_border = false,
-		-- Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
-		allow_tearing = false,
 		layout = "dwindle",
 		no_focus_fallback = true,
 	},
@@ -111,61 +101,21 @@ hl.config({
 hl.config({
 	decoration = {
 		rounding = 12,
-		rounding_power = 2,
-		-- Change transparency of focused and unfocused windows
-		-- active_opacity = .9
-		-- inactive_opacity = .6
-		shadow = {
-			enabled = false,
-			range = 4,
-			render_power = 3,
-			color = "rgba(1a1a1aee)",
-		},
-		-- https://wiki.hyprland.org/Configuring/Variables/#blur
-		blur = {
-			enabled = false,
-		},
+		shadow = { enabled = false },
+		blur = { enabled = false },
 	},
 })
 
 hl.config({
 	dwindle = {
-		-- You probably want this
 		preserve_split = true,
-	},
-})
-
-hl.config({
-	master = {
-		new_status = "master",
-	},
-})
-
-hl.config({
-	misc = {
-		-- Set to 0 or 1 to disable the anime mascot wallpapers
-		force_default_wallpaper = 1,
-		-- If true disables the random hyprland logo / anime girl background. :(
-		disable_hyprland_logo = true,
-	},
-})
-
-hl.config({
-	debug = {
-		-- set to false because it seems to cause issue with the integrated graphics on my Framework 13 laptop
-		vfr = false,
-	},
-})
-
-hl.config({
-	cursor = {
-		inactive_timeout = 1,
 	},
 })
 
 --#################
 --## ANIMATIONS ###
 --#################
+
 hl.config({
 	animations = {
 		enabled = true,
@@ -173,7 +123,6 @@ hl.config({
 })
 
 hl.curve("easeOutQuint", { type = "bezier", points = { { 0.23, 1 }, { 0.32, 1 } } })
-hl.curve("easeInOutCubic", { type = "bezier", points = { { 0.65, 0.05 }, { 0.36, 1 } } })
 hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
 hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1.0 } } })
 hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
@@ -205,9 +154,35 @@ hl.config({
 		follow_mouse = 1,
 		sensitivity = -0.15,
 		accel_profile = "flat",
-		touchpad = {
-			natural_scroll = false,
-		},
+	},
+})
+
+hl.config({
+	cursor = {
+		inactive_timeout = 1,
+	},
+})
+
+--###########
+--## MISC ###
+--###########
+
+hl.config({
+	misc = {
+		disable_hyprland_logo = true,
+	},
+})
+
+hl.config({
+	xwayland = {
+		force_zero_scaling = true,
+	},
+})
+
+hl.config({
+	debug = {
+		-- VFR causes issues with the integrated graphics on the Framework 13
+		vfr = false,
 	},
 })
 
@@ -216,97 +191,57 @@ hl.config({
 --##################
 
 local mainMod = "SUPER"
-local shiftMod = "SHIFT"
 
--- Sets "Windows" key as main modifier
+-- Windows
+hl.bind(mainMod .. " + C", hl.dsp.window.close())
+hl.bind(mainMod .. " + V", hl.dsp.window.float())
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = 1 }))
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
-hl.bind(mainMod .. " + " .. "C", hl.dsp.window.close())
-hl.bind(mainMod .. " + " .. "V", hl.dsp.window.float())
-hl.bind(mainMod .. " + " .. "F", hl.dsp.window.fullscreen({ mode = 1 }))
+-- Apps
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("ghostty"))
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("rofi -modi emoji:rofimoji -show emoji"))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("dunstctl set-paused toggle"))
 
--- Run ghostty
-hl.bind(mainMod .. " + " .. "Q", hl.dsp.exec_cmd("ghostty"))
-
--- Run rofi
-hl.bind(mainMod .. " + " .. "R", hl.dsp.exec_cmd("rofi -show drun"))
-
--- Run rofimoji
-hl.bind(mainMod .. " + " .. "E", hl.dsp.exec_cmd("rofi -modi emoji:rofimoji -show emoji"))
-
--- Toggle dunst notifications
-hl.bind(mainMod .. " + " .. "N", hl.dsp.exec_cmd("dunstctl set-paused toggle"))
-
--- Eww dashboard toggle
+-- Eww
 hl.bind(
-	mainMod .. " + " .. "D",
-	hl.dsp.exec_cmd("eww open --toggle dashboard --screen $(hyprctl activewindow -j| jq '.monitor')")
+	mainMod .. " + D",
+	hl.dsp.exec_cmd("eww open --toggle dashboard --screen $(hyprctl activewindow -j | jq '.monitor')")
 )
-
--- Eww powermenu toggle
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "P", hl.dsp.exec_cmd("$HOME/.config/eww/powermenu/powermenu.sh"))
-
--- Hyprlock lock screen binding
-hl.bind(mainMod .. " + " .. "L", hl.dsp.exec_cmd("hyprlock"))
-
--- Move focus with mainMod + arrow keys
-hl.bind(mainMod .. " + " .. "left", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + " .. "right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + " .. "up", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + " .. "down", hl.dsp.focus({ direction = "down" }))
-
--- Switch workspaces with mainMod + [0-9]
-hl.bind(mainMod .. " + " .. 1, hl.dsp.focus({ workspace = 1 }))
-hl.bind(mainMod .. " + " .. 2, hl.dsp.focus({ workspace = 2 }))
-hl.bind(mainMod .. " + " .. 3, hl.dsp.focus({ workspace = 3 }))
-hl.bind(mainMod .. " + " .. 4, hl.dsp.focus({ workspace = 4 }))
-hl.bind(mainMod .. " + " .. 5, hl.dsp.focus({ workspace = 5 }))
-hl.bind(mainMod .. " + " .. 6, hl.dsp.focus({ workspace = 6 }))
-hl.bind(mainMod .. " + " .. 7, hl.dsp.focus({ workspace = 7 }))
-hl.bind(mainMod .. " + " .. 8, hl.dsp.focus({ workspace = 8 }))
-hl.bind(mainMod .. " + " .. 9, hl.dsp.focus({ workspace = 9 }))
-hl.bind(mainMod .. " + " .. 0, hl.dsp.focus({ workspace = 10 }))
-
--- Move active window to a workspace with mainMod + SHIFT + [0-9]
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 1, hl.dsp.window.move({ workspace = 1 }))
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 2, hl.dsp.window.move({ workspace = 2 }))
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 3, hl.dsp.window.move({ workspace = 3 }))
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 4, hl.dsp.window.move({ workspace = 4 }))
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 5, hl.dsp.window.move({ workspace = 5 }))
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 6, hl.dsp.window.move({ workspace = 6 }))
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 7, hl.dsp.window.move({ workspace = 7 }))
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 8, hl.dsp.window.move({ workspace = 8 }))
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 9, hl.dsp.window.move({ workspace = 9 }))
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 0, hl.dsp.window.move({ workspace = 10 }))
-
--- Special workspace for Bitwarden
-hl.workspace_rule({
-	workspace = "special:bitwarden",
-	gaps_in = 50,
-	gaps_out = { top = 200, right = 350, bottom = 200, left = 350 },
-})
-hl.bind(mainMod .. " + " .. "P", hl.dsp.exec_cmd("[workspace special:bitwarden silent] bitwarden-desktop"))
-hl.bind(mainMod .. " + " .. "P", hl.dsp.workspace.toggle_special("bitwarden"))
-
--- Special workspace for Obsidian
-hl.workspace_rule({
-	workspace = "special:obsidian",
-	gaps_in = 50,
-	gaps_out = { top = 100, right = 250, bottom = 100, left = 250 },
-})
-hl.bind(mainMod .. " + " .. "O", hl.dsp.workspace.toggle_special("obsidian"))
-
--- Toggle through existing workspaces using Ubuntu style keybindings
-hl.bind("CTRL + ALT" .. " + " .. "right", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind("CTRL + ALT" .. " + " .. "left", hl.dsp.focus({ workspace = "e-1" }))
-
--- Move/resize windows with mainMod + LMB/RMB and dragging
-hl.bind(mainMod .. " + " .. "mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mainMod .. " + " .. "mouse:273", hl.dsp.window.resize(), { mouse = true })
-
--- Close all open eww windows when escape is pressed
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("$HOME/.config/eww/powermenu/powermenu.sh"))
 hl.bind("escape", hl.dsp.exec_cmd("eww close-all"), { non_consuming = true })
 
--- Laptop multimedia keys for volume and LCD brightness
+-- Scratchpads. SUPER+P fires both binds: launch Bitwarden (if needed) and toggle its workspace
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("[workspace special:bitwarden silent] bitwarden-desktop"))
+hl.bind(mainMod .. " + P", hl.dsp.workspace.toggle_special("bitwarden"))
+hl.bind(mainMod .. " + O", hl.dsp.workspace.toggle_special("obsidian"))
+
+-- Focus
+hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
+
+-- Workspaces: SUPER+[0-9] to switch, SUPER+SHIFT+[0-9] to move the active window (0 is workspace 10)
+for ws = 1, 10 do
+	local key = ws % 10
+	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = ws }))
+	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = ws }))
+end
+
+-- Cycle through existing workspaces, Ubuntu style
+hl.bind("CTRL + ALT + right", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind("CTRL + ALT + left", hl.dsp.focus({ workspace = "e-1" }))
+
+-- Screenshots
+hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -z -m region"))
+hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd("hyprshot -z -m window"))
+hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -z -m output"))
+
+-- Volume and brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
@@ -314,29 +249,42 @@ hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURC
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true })
 
--- Requires playerctl
+-- Media
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
---#############################
---## WINDOWS AND WORKSPACES ###
---#############################
+--######################
+--## WORKSPACE RULES ###
+--######################
 
--- Ignore maximize requests from apps. You'll probably like this.
+hl.workspace_rule({
+	workspace = "special:bitwarden",
+	gaps_in = 50,
+	gaps_out = { top = 200, right = 350, bottom = 200, left = 350 },
+})
+
+hl.workspace_rule({
+	workspace = "special:obsidian",
+	gaps_in = 50,
+	gaps_out = { top = 100, right = 250, bottom = 100, left = 250 },
+})
+
+--###################
+--## WINDOW RULES ###
+--###################
+
 hl.window_rule({
-	name = "windowrule-1",
-	match = {
-		class = ".*",
-	},
+	name = "all-windows",
+	match = { class = ".*" },
 	suppress_event = "maximize",
 	idle_inhibit = "fullscreen",
 })
 
 -- Fix some dragging issues with XWayland
 hl.window_rule({
-	name = "windowrule-2",
+	name = "xwayland-drag-fix",
 	match = {
 		class = "^$",
 		title = "^$",
@@ -348,98 +296,39 @@ hl.window_rule({
 	no_focus = true,
 })
 
--- unscale XWayland
-hl.config({
-	xwayland = {
-		force_zero_scaling = true,
-	},
-})
-
---#############################
---## Hyprshot ###
---#############################
-
--- Screenshot a window
-hl.bind(mainMod .. " + " .. "PRINT", hl.dsp.exec_cmd("hyprshot -z -m window"))
-
--- Screenshot a region
-hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -z -m region"))
-
--- Screenshot a monitor
-hl.bind(shiftMod .. " + " .. "PRINT", hl.dsp.exec_cmd("hyprshot -z -m output"))
-
---#############################
---## Custom Window-Rules ###
---#############################
-
 hl.window_rule({
-	name = "bitwarden-windowrule",
-	match = {
-		class = ".*Bitwarden.*",
-	},
+	name = "scratchpads",
+	match = { class = ".*(Bitwarden|obsidian).*" },
 	stay_focused = true,
 })
 
 hl.window_rule({
-	name = "obsidian-windowrule",
-	match = {
-		class = ".*obsidian.*",
-	},
-	stay_focused = true,
-})
-
-hl.window_rule({
-	name = "runelite-windowrule",
-	match = {
-		class = "net-runelite-.*", -- matches BOTH launcher-Launcher and client-RuneLite
-	},
+	name = "runelite",
+	match = { class = "net-runelite-.*" }, -- matches both launcher-Launcher and client-RuneLite
 	float = true,
 	center = true,
 	size = { 1000, 800 }, -- pins Hyprland's saved floating size so movewindow can't revert it
 })
 
 hl.window_rule({
-	name = "bolt-launcher-windowrule",
-	match = {
-		class = ".*bolt.*",
-	},
+	name = "bolt-launcher",
+	match = { class = ".*bolt.*" },
 	float = true,
 	center = true,
 	size = { "(monitor_w/2.2)", "(monitor_h/1.8)" },
 })
 
 hl.window_rule({
-	name = "ghostty-windowrule",
-	match = {
-		class = ".*ghostty.*",
-	},
+	name = "translucent-apps",
+	match = { class = ".*(ghostty|zathura).*" },
 	opacity = "1 0.6",
 	border_color = "rgb(EBDBB2)",
 	border_size = 1,
 })
 
+-- Keep terminals running cbonsai/lavat fully opaque, overriding the rule above
 hl.window_rule({
-	name = "zathura-windowrule",
-	match = {
-		class = ".*zathura.*",
-	},
-	opacity = "1 0.6",
-	border_color = "rgb(EBDBB2)",
-	border_size = 1,
-})
-
--- Always keep terminals running [cbonsai, lavat] at 1.0 opacity
-hl.window_rule({
-	name = "cbonsai-windowrule",
-	match = {
-		title = "^(.*cbonsai.*)$",
-	},
-	opacity = "1.0",
-})
-hl.window_rule({
-	name = "lavat-windowrule",
-	match = {
-		title = "^(.*lavat.*)$",
-	},
+	name = "opaque-terminal-art",
+	match = { title = ".*(cbonsai|lavat).*" },
 	opacity = "1.0",
 })
