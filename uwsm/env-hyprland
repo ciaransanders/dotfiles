@@ -1,1 +1,0 @@
-export HYPRSHOT_DIR="$(xdg-user-dir PICTURES)/screenshots"
