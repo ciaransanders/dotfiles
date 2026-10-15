@@ -5,35 +5,10 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
-      "ravitemer/codecompanion-history.nvim",
       "lalitmee/codecompanion-spinners.nvim",
     },
     opts = {
       extensions = {
-        history = {
-          enabled = true,
-          opts = {
-            expiration_days = 21,
-            picker = "snacks",
-            auto_generate_title = true,
-            title_generation_opts = {
-              adapter = { name = "anthropic", model = "claude-haiku-4-5" },
-              model = "claude-haiku-4-5",
-              -- The first title only sees the opening message. Re-title after
-              -- the 2nd, 4th and 6th prompts once there is real context.
-              refresh_every_n_prompts = 2,
-              max_refreshes = 3,
-              format_title = function(title)
-                -- Keep nil and the "Deciding title..." placeholders untouched.
-                if not title or title:match("%.%.%.$") then
-                  return title
-                end
-                title = vim.trim(title:gsub("^[Tt]itle:%s*", ""):gsub('["`*#]', ""))
-                return (title:gsub("[%.%s]+$", ""))
-              end,
-            },
-          },
-        },
         spinner = {
           opts = {
             style = "snacks",
@@ -47,6 +22,21 @@ return {
             completion_provider = "blink",
           },
           adapter = "claude_code",
+          keymaps = {
+            -- `gh` (chat history) runs /resume. ACP chats list and load the agent's
+            -- own sessions, so it only works before the first message is sent.
+            resume = {
+              modes = { n = "gh" },
+              description = "Resume a previous session",
+              callback = function(chat)
+                local config = require("codecompanion.config")
+                require("codecompanion.interactions.chat.slash_commands").new():execute({
+                  label = "resume",
+                  config = config.interactions.chat.slash_commands.resume,
+                }, chat)
+              end,
+            },
+          },
         },
         inline = {
           adapter = "anthropic",
@@ -93,9 +83,8 @@ return {
                     return false
                   end,
                 },
-                -- Stop the adapter auto-enabling adaptive thinking. This adapter
-                -- is used by inline edits and by the history auto title-generation
-                -- (claude-haiku-4-5), whose API rejects `thinking.type="adaptive"`
+                -- Stop the adapter auto-enabling adaptive thinking for inline edits.
+                -- Some models (e.g. claude-haiku-4-5) reject `thinking.type="adaptive"`
                 -- ("adaptive thinking is not supported on this model"). Off by
                 -- default; still toggleable per-chat.
                 extended_thinking = {
@@ -130,83 +119,6 @@ return {
         },
       },
     },
-    config = function(_, opts)
-      require("codecompanion").setup(opts)
-
-      -- codecompanion-history hardcodes its title prompt ("max 5 words", built from
-      -- the first message only), which produces near-identical titles. It has no
-      -- option to change the prompt, so wrap the request and supply our own.
-      local config = require("codecompanion.config")
-      local TitleGenerator = require("codecompanion._extensions.history.title_generator")
-      local make_request = TitleGenerator._make_adapter_request
-
-      local function excerpt(msg, limit)
-        local role = msg.role == config.constants.USER_ROLE and "User" or "Assistant"
-        local content = vim.trim(msg.content)
-        -- Truncate by characters, not bytes: string.sub can split a multi-byte
-        -- UTF-8 char (em dash, emoji, icons), which the API rejects as invalid JSON.
-        if vim.fn.strchars(content) > limit then
-          content = vim.fn.strcharpart(content, 0, limit) .. " [truncated]"
-        end
-        return role .. ": " .. content
-      end
-
-      TitleGenerator._make_adapter_request = function(self, chat, _, callback)
-        local messages = vim.tbl_filter(function(msg)
-          return msg.content
-            and vim.trim(msg.content) ~= ""
-            and (msg.role == config.constants.USER_ROLE or msg.role == config.constants.LLM_ROLE)
-            and not (msg.opts and (msg.opts.tag or msg.opts.reference or msg.opts.context_id))
-        end, chat.messages or {})
-
-        -- Always include the opening message (it states the original goal) plus
-        -- the most recent exchange, so refreshes don't lose the overall topic.
-        local parts = {}
-        local start = math.max(2, #messages - 5)
-        if messages[1] then
-          table.insert(parts, excerpt(messages[1], 1500))
-        end
-        if start > 2 then
-          table.insert(parts, "[...]")
-        end
-        for i = start, #messages do
-          table.insert(parts, excerpt(messages[i], 800))
-        end
-
-        local previous = chat.opts.title
-            and not chat.opts.title:match("%.%.%.$")
-            and ("\nCurrent title (replace it if it is vague or outdated): " .. chat.opts.title .. "\n")
-          or ""
-
-        local prompt = string.format(
-          [[Write a title for the chat below. It will be shown in a list of many other chats that are mostly about programming, Neovim and dotfiles, so it must make this chat easy to tell apart from the rest.
-
-Rules:
-- 4 to 9 words.
-- Name the concrete subject: the specific tool, plugin, language, file, function, command or error message involved.
-- Say what was being done to it: e.g. fix, configure, debug, explain, compare, refactor, write, migrate.
-- Never use vague filler like "Help", "Question", "Issue", "Code", "Assistance", "Discussion" or a bare topic like "Neovim Config" or "Lua Help".
-- Plain text only: no quotes, no markdown, no trailing punctuation, no "Title:" prefix.
-
-Examples:
-Bad: Neovim Plugin Help
-Good: Fix blink.cmp completions missing in CodeCompanion chat
-Bad: Shell Question
-Good: Zsh alias to launch Neovim in chat-only mode
-Bad: Python Error
-Good: Debug pandas KeyError when merging CSV exports
-%s
-Chat:
-%s
-
-Respond with only the title.]],
-          previous,
-          table.concat(parts, "\n\n")
-        )
-
-        return make_request(self, chat, prompt, callback)
-      end
-    end,
     keys = {
       { "<leader>ap", "<cmd>CodeCompanionActions<CR>", desc = "Action Palette" },
       { "<leader>ai", "<cmd>CodeCompanionChat Toggle<CR>", desc = "Toggle Chat" },
