@@ -428,10 +428,18 @@ hl.window_rule({
 	border_size = 1,
 })
 
+-- Always keep terminals running [cbonsai, lavat] at 1.0 opacity
 hl.window_rule({
 	name = "cbonsai-windowrule",
 	match = {
 		title = "^(.*cbonsai.*)$",
+	},
+	opacity = "1.0",
+})
+hl.window_rule({
+	name = "lavat-windowrule",
+	match = {
+		title = "^(.*lavat.*)$",
 	},
 	opacity = "1.0",
 })
