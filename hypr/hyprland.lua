@@ -238,7 +238,26 @@ hl.bind("escape", hl.dsp.exec_cmd("eww close-all"), { non_consuming = true })
 
 -- Scratchpads. SUPER+P fires both binds: launch Bitwarden (if needed) and toggle its workspace
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("[workspace special:bitwarden silent] bitwarden-desktop"))
-hl.bind(mainMod .. " + P", hl.dsp.workspace.toggle_special("bitwarden"))
+-- Size bitwarden's gaps based off of currently focused monitors resolution
+local bitwardenRules = {}
+hl.bind(mainMod .. " + P", function()
+	local mon = hl.get_active_monitor()
+	if mon then
+		for name, rule in pairs(bitwardenRules) do
+			rule:set_enabled(name == mon.name)
+		end
+		if not bitwardenRules[mon.name] then
+			local w, h = mon.width / mon.scale, mon.height / mon.scale
+			local x, y = math.floor(w * 0.18), math.floor(h * 0.13)
+			bitwardenRules[mon.name] = hl.workspace_rule({
+				workspace = "special:bitwarden",
+				gaps_in = 50,
+				gaps_out = { top = y, right = x, bottom = y, left = x },
+			})
+		end
+	end
+	hl.dispatch(hl.dsp.workspace.toggle_special("bitwarden"))
+end)
 hl.bind(mainMod .. " + O", hl.dsp.workspace.toggle_special("obsidian"))
 
 -- Focus
@@ -280,12 +299,6 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 --######################
 --## WORKSPACE RULES ###
 --######################
-
-hl.workspace_rule({
-	workspace = "special:bitwarden",
-	gaps_in = 50,
-	gaps_out = { top = 200, right = 350, bottom = 200, left = 350 },
-})
 
 hl.workspace_rule({
 	workspace = "special:obsidian",
