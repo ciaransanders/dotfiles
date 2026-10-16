@@ -30,7 +30,7 @@
       )
     )
     (eventbox :cursor "pointer"
-      (button :class "launcher" :onclick "bash -c '${closer_script} powermenu && uwsm app -- rofi -show drun'&" :height 150 :width 150 
+      (button :class "launcher" :onclick "bash -c '${closer_script} powermenu && rofi -show drun'&" :height 150 :width 150 
         (image :path "${home}/.config/eww/images/rocket.svg" :image-width 100 :fill-svg "#ebdbb2")
       )
     )
