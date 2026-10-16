@@ -74,19 +74,10 @@ return {
         http = {
           anthropic = function()
             return require("codecompanion.adapters").extend("anthropic", {
-              -- The inline default model (claude-sonnet-5) rejects `temperature`
-              -- ("`temperature` is deprecated for this model"), but the adapter
-              -- only strips it for opus-4-7/opus-4-8/fable. Never send it.
               schema = {
-                temperature = {
-                  enabled = function()
-                    return false
-                  end,
-                },
-                -- Stop the adapter auto-enabling adaptive thinking for inline edits.
-                -- Some models (e.g. claude-haiku-4-5) reject `thinking.type="adaptive"`
-                -- ("adaptive thinking is not supported on this model"). Off by
-                -- default; still toggleable per-chat.
+                -- Stop the adapter auto-enabling adaptive thinking for inline edits,
+                -- keeping them fast and cheap on API credits. Off by default; still
+                -- toggleable per-chat.
                 extended_thinking = {
                   default = function()
                     return false
