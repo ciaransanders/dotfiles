@@ -1,4 +1,8 @@
 
+; Whether SSH mode (sshd + lid/sleep inhibitor) is currently on
+(defpoll ssh_mode :interval "5s" :initial "false"
+  "$HOME/.config/eww/scripts/ssh_mode.sh status")
+
 (defwindow powermenu-closer [screen]
   :monitor screen
   :class "powermenu-closer"
@@ -32,6 +36,11 @@
     (eventbox :cursor "pointer"
       (button :class "launcher" :onclick "bash -c '${closer_script} powermenu && rofi -show drun'&" :height 150 :width 150 
         (image :path "${home}/.config/eww/images/rocket.svg" :image-width 100 :fill-svg "#ebdbb2")
+      )
+    )
+    (eventbox :cursor "pointer"
+      (button :class "ssh ${ssh_mode ? 'active' : ''}" :tooltip "SSH mode: ${ssh_mode ? 'on' : 'off'}" :onclick "bash -c '${closer_script} powermenu && ${home}/.config/eww/scripts/ssh_mode.sh toggle'&" :height 150 :width 150
+        (image :path "${home}/.config/eww/images/ssh.svg" :image-width 100 :fill-svg "#ebdbb2")
       )
     )
   )

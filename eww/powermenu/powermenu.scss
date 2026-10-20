@@ -24,4 +24,10 @@
   &.launcher:hover {
     background-color: $gruvbox-yellow-light;
   }
+  &.ssh:hover {
+    background-color: $gruvbox-blue-light;
+  }
+  &.ssh.active {
+    background-color: $gruvbox-aqua-dark; // stays lit while SSH mode is on
+  }
 }
