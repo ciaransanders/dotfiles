@@ -16,6 +16,7 @@
     "mpris",
     // "cava",
     "wireplumber",
+    "custom/ssh",
     "custom/dunst",
     "battery",
     "bluetooth",
@@ -68,6 +69,13 @@
   "custom/dunst": {
     "exec": "~/.config/waybar/scripts/dunst.sh",
     "restart-interval": 1
+  },
+  "custom/ssh": {
+    // Only shown while SSH mode is on; ssh_mode.sh sends SIGRTMIN+8 for an instant refresh
+    "exec": "[ \"$(~/.config/eww/scripts/ssh_mode.sh status)\" = true ] && echo '󰣀' || true",
+    "interval": 5,
+    "signal": 8,
+    "tooltip": false
   },
   "custom/launcher": {
     "format": "",

@@ -31,5 +31,6 @@ case "$1" in
   *)      echo "usage: $0 {toggle|on|off|status}" >&2; exit 1 ;;
 esac
 
-# Push the new state to eww immediately instead of waiting for the next poll
+# Push the new state to eww and waybar immediately instead of waiting for the next poll
 eww update ssh_mode="$("$0" status)"
+pkill -RTMIN+8 waybar
