@@ -347,6 +347,16 @@ hl.window_rule({
 	stay_focused = true,
 })
 
+-- Polkit prompts (e.g. from eww's ssh_mode.sh) must grab keyboard focus, even over a scratchpad
+hl.window_rule({
+	name = "polkit-agent",
+	match = { class = ".*polkit.*" },
+	float = true,
+	center = true,
+	pin = true,
+	stay_focused = true,
+})
+
 hl.window_rule({
 	name = "runelite",
 	match = { class = "net-runelite-.*" }, -- matches both launcher-Launcher and client-RuneLite
