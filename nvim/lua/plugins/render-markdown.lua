@@ -20,6 +20,10 @@ return {
       checkbox = {
         enabled = true,
       },
+      -- Always show HTML comments (e.g. <!-- TODO -->) instead of hiding them off the cursor line
+      html = {
+        comment = { conceal = false },
+      },
     },
   },
 }
