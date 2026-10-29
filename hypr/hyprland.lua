@@ -27,6 +27,14 @@ hl.monitor({
 	scale = 1,
 })
 
+-- East Office TV
+-- hl.monitor({
+-- 	output = "DP-4",
+-- 	mode = "1920x1080@120",
+-- 	position = "auto-center-up",
+-- 	scale = 1,
+-- })
+
 -- Asus monitor
 -- hl.monitor({
 -- 	output = "DP-4",
@@ -368,4 +376,13 @@ hl.window_rule({
 	name = "opaque-terminal-art",
 	match = { title = ".*(cbonsai|lavat).*" },
 	opacity = "1.0",
+})
+
+-- Turn off XDG top level drag
+hl.window_rule({
+	name = "no-csd-drag",
+	match = {
+		class = ".*",
+	},
+	no_xdg_drags = true,
 })
