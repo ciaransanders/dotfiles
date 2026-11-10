@@ -25,7 +25,9 @@ return {
             },
             layout = {
               layout = {
-                width = 60,
+                width = 0.2, -- 20% of the editor width
+                min_width = 20, -- default sidebar min is 40; lower it so small terminals get a small explorer
+                max_width = 60, -- don't grow beyond the old fixed width on wide screens
               },
             },
           },
