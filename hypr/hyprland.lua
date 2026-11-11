@@ -216,8 +216,21 @@ local focusRules = {}
 local function refreshGapsIndicator()
 	hl.exec_cmd("pkill -RTMIN+9 waybar")
 end
-hl.on("workspace.active", refreshGapsIndicator)
-hl.on("monitor.focused", refreshGapsIndicator)
+-- Tell waybar's custom/fullscreen module to re-check whether the active workspace has a fullscreen window
+local function refreshFullscreenIndicator()
+	hl.exec_cmd("pkill -RTMIN+10 waybar")
+end
+hl.on("workspace.active", function()
+	refreshGapsIndicator()
+	refreshFullscreenIndicator()
+end)
+hl.on("monitor.focused", function()
+	refreshGapsIndicator()
+	refreshFullscreenIndicator()
+end)
+hl.on("window.fullscreen", refreshFullscreenIndicator)
+hl.on("window.close", refreshFullscreenIndicator)
+hl.on("window.move_to_workspace", refreshFullscreenIndicator)
 hl.bind(mainMod .. " + G", function()
 	local ws = hl.get_active_workspace()
 	if not ws then

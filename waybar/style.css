@@ -82,6 +82,13 @@ window#waybar.hidden {
   color: #ebdbb2;
 }
 
+#custom-fullscreen {
+  font-size: 22px;
+  margin: 0px 14px 0px 14px;
+  transition: none;
+  color: #ebdbb2;
+}
+
 #custom-gaps {
   margin: 0px 14px 0px 14px;
   transition: none;
@@ -126,14 +133,4 @@ window#waybar.hidden {
 #cava {
   margin: 0px 14px 0px 14px;
   color: #ebdbb2;
-}
-
-#window {
-  opacity: 0;
-  font-size: 32px;
-  color: #ebdbb2;
-}
-
-window#waybar.fullscreen #window {
-  opacity: 1;
 }

@@ -9,13 +9,13 @@
     "ext/workspaces"
   ],
   "modules-center": [
-    "clock",
-    "hyprland/window"
+    "clock"
   ],
   "modules-right": [
     "mpris",
     // "cava",
     "wireplumber",
+    "custom/fullscreen",
     "custom/gaps",
     "custom/ssh",
     "custom/dunst",
@@ -144,9 +144,10 @@
       "█"
     ]
   },
-  "hyprland/window": {
-    "format": "󰊔",
-    "separate-outputs": true,
-    "icon": false
+  "custom/fullscreen": {
+    // Only shown while the active workspace has a fullscreen window; hyprland.lua sends SIGRTMIN+10 to refresh
+    "exec": "~/.config/waybar/scripts/fullscreen.sh",
+    "signal": 10,
+    "tooltip": false
   }
 }
