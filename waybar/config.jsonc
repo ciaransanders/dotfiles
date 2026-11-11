@@ -16,6 +16,7 @@
     "mpris",
     // "cava",
     "wireplumber",
+    "custom/gaps",
     "custom/ssh",
     "custom/dunst",
     "battery",
@@ -69,6 +70,12 @@
   "custom/dunst": {
     "exec": "~/.config/waybar/scripts/dunst.sh",
     "restart-interval": 1
+  },
+  "custom/gaps": {
+    // Only shown while SUPER+G big gaps are on for the active workspace; hyprland.lua sends SIGRTMIN+9 to refresh
+    "exec": "~/.config/waybar/scripts/gaps.sh",
+    "signal": 9,
+    "tooltip": false
   },
   "custom/ssh": {
     // Only shown while SSH mode is on; ssh_mode.sh sends SIGRTMIN+8 for an instant refresh

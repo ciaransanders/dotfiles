@@ -82,6 +82,12 @@ window#waybar.hidden {
   color: #ebdbb2;
 }
 
+#custom-gaps {
+  margin: 0px 14px 0px 14px;
+  transition: none;
+  color: #ebdbb2;
+}
+
 #custom-ssh {
   margin: 0px 14px 0px 14px;
   transition: none;

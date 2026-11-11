@@ -212,6 +212,12 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 -- Toggle big outer gaps on the active workspace, so a lone window shrinks into a centered box.
 -- Gaps are per-workspace, so this creates a workspace rule on first use and toggles it after that.
 local focusRules = {}
+-- Tell waybar's custom/gaps module to re-check whether the active workspace has big gaps
+local function refreshGapsIndicator()
+	hl.exec_cmd("pkill -RTMIN+9 waybar")
+end
+hl.on("workspace.active", refreshGapsIndicator)
+hl.on("monitor.focused", refreshGapsIndicator)
 hl.bind(mainMod .. " + G", function()
 	local ws = hl.get_active_workspace()
 	if not ws then
@@ -229,6 +235,7 @@ hl.bind(mainMod .. " + G", function()
 			gaps_out = { top = y, right = x, bottom = y, left = x },
 		})
 	end
+	refreshGapsIndicator()
 end)
 
 -- Apps
