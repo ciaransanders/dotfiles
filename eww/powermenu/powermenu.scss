@@ -11,6 +11,8 @@
 .powermenu-box {
   background-color: $gruvbox-bg;
   padding: 25px;
+  border: 1px solid $gruvbox-fg;
+  border-radius: 12px;
 }
 
 .powermenu button {
