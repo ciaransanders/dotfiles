@@ -95,10 +95,9 @@ window#waybar.hidden {
   color: #ebdbb2;
 }
 
-#custom-ssh {
+#image.ssh {
   margin: 0px 14px 0px 14px;
   transition: none;
-  color: #b8bb26;
 }
 
 #cpu {
