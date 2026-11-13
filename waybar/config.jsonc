@@ -17,7 +17,7 @@
     "wireplumber",
     "custom/fullscreen",
     "custom/gaps",
-    "image#ssh",
+    "custom/ssh",
     "custom/dunst",
     "battery",
     "bluetooth",
@@ -77,12 +77,9 @@
     "signal": 9,
     "tooltip": false
   },
-  "image#ssh": {
-    // Only shown while SSH mode is on; ssh_mode.sh sends SIGRTMIN+8 for an instant refresh
-    // Uses the same icon as the eww powermenu SSH button (an SVG, hence the image module)
+  "custom/ssh": {
+    // Only shown while SSH mode is on; ssh_mode.sh sends SIGRTMIN+8 to refresh
     "exec": "~/.config/waybar/scripts/ssh.sh",
-    "size": 20,
-    "interval": 5,
     "signal": 8,
     "tooltip": false
   },
