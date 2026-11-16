@@ -17,7 +17,7 @@
   :stacking "fg"
   :wm-ignore true
   :exclusive false
-  :geometry (geometry :y "35%" :anchor "top center")
+  :geometry (geometry :x "32px" :y "24px" :anchor "top left")
   (powermenu_widget)
 )
 
@@ -27,7 +27,11 @@
     (button :class class :onclick onclick
       (box :orientation "horizontal" :space-evenly false :class "powermenu-item"
         (label :class "powermenu-label" :text label :halign "start" :hexpand true)
-        (image :path "${home}/.config/eww/images/${icon}" :image-width 24 :fill-svg "#ebdbb2")
+        ; Light and dark copies of the icon stacked; CSS shows the dark one on hover
+        (overlay
+          (image :class "icon-light" :path "${home}/.config/eww/images/${icon}" :image-width 24 :fill-svg "#ebdbb2")
+          (image :class "icon-dark" :path "${home}/.config/eww/images/${icon}" :image-width 24 :fill-svg "#282828")
+        )
       )
     )
   )

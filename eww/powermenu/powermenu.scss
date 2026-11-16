@@ -30,6 +30,15 @@
   &:hover .powermenu-label {
     color: $gruvbox-bg; // dark text for contrast on the light hover colors
   }
+  .icon-dark {
+    opacity: 0;
+  }
+  &:hover .icon-light {
+    opacity: 0;
+  }
+  &:hover .icon-dark {
+    opacity: 1; // dark icon to match the dark label on hover
+  }
   &.poweroff:hover {
     background-color: $gruvbox-orange-light;
   }
