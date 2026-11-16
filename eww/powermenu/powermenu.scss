@@ -10,13 +10,26 @@
 
 .powermenu-box {
   background-color: $gruvbox-bg;
-  padding: 25px;
+  padding: 10px;
+  min-width: 260px;
   border: 1px solid $gruvbox-fg;
   border-radius: 12px;
 }
 
+.powermenu-item {
+  padding: 10px 16px;
+}
+
+.powermenu-label {
+  color: $gruvbox-fg;
+  font-size: 16px;
+}
+
 .powermenu button {
-  border-radius: 12px;
+  border-radius: 8px;
+  &:hover .powermenu-label {
+    color: $gruvbox-bg; // dark text for contrast on the light hover colors
+  }
   &.poweroff:hover {
     background-color: $gruvbox-orange-light;
   }
