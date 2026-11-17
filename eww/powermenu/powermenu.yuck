@@ -17,7 +17,7 @@
   :stacking "fg"
   :wm-ignore true
   :exclusive false
-  :geometry (geometry :x "32px" :y "24px" :anchor "top left")
+  :geometry (geometry :y "20%" :anchor "top center")
   (powermenu_widget)
 )
 
