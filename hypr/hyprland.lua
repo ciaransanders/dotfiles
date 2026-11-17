@@ -401,6 +401,14 @@ hl.window_rule({
 	border_size = 1,
 })
 
+-- The `ssh` wrapper in dotfiles/.zshrc adds/removes the tag, so this works regardless of the remote shell config.
+-- Two colors = focused, then unfocused (same orange at 40% alpha).
+hl.window_rule({
+	name = "ssh-terminal",
+	match = { tag = "ssh" },
+	border_color = "rgb(FE8019) rgba(FE801966)",
+})
+
 -- Keep terminals running cbonsai/lavat fully opaque, overriding the rule above
 hl.window_rule({
 	name = "opaque-terminal-art",

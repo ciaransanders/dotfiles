@@ -51,6 +51,11 @@ zstyle ':vcs_info:*' unstagedstr '%F{red}-%f'
 setopt prompt_subst
 precmd() { vcs_info }
 PS1='%F{3}%B%~%b%f ${vcs_info_msg_0_}%f$ '
+# Prefix user@host when this shell came in over SSH, so remote sessions are obvious.
+# SSH_CONNECTION/SSH_TTY are set by sshd and inherited by child shells (tmux, sudo -E, etc.)
+if [[ -n $SSH_CONNECTION || -n $SSH_TTY ]]; then
+  PS1='%F{6}%B%n@%m%b%f '$PS1
+fi
 
 # pyenv setup
 export PYENV_ROOT="$HOME/.pyenv"
@@ -64,6 +69,23 @@ function y() {
 	IFS= read -r -d '' cwd < "$tmp"
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
+}
+
+# Mark the terminal window while an SSH session runs in it. The remote prompt is out of our
+# control, so tag the Hyprland window instead (hyprland.lua's "ssh-terminal" rule gives it an
+# orange border).
+function ssh() {
+	local win
+	if [[ -n $HYPRLAND_INSTANCE_SIGNATURE && -t 1 ]]; then
+		win=$(hyprctl activewindow -j 2>/dev/null | jq -r 'select(.class | test("ghostty")) | .address')
+	fi
+	[[ -n $win ]] && hyprctl eval "hl.dispatch(hl.dsp.window.tag({ tag = '+ssh', window = 'address:$win' }))" >/dev/null 2>&1
+	{
+		command ssh "$@"
+	} always {
+		# Untag by address so it still works if focus moved during the session
+		[[ -n $win ]] && hyprctl eval "hl.dispatch(hl.dsp.window.tag({ tag = '-ssh', window = 'address:$win' }))" >/dev/null 2>&1
+	}
 }
 
 # Environment variables
