@@ -26,29 +26,37 @@
 }
 
 .powermenu button {
+  outline: none; // focus is shown by the hover colors instead of the dashed GTK outline
   border-radius: 8px;
-  &:hover .powermenu-label {
+  &:hover .powermenu-label,
+  &:focus .powermenu-label {
     color: $gruvbox-bg; // dark text for contrast on the light hover colors
   }
   .icon-dark {
     opacity: 0;
   }
-  &:hover .icon-light {
+  &:hover .icon-light,
+  &:focus .icon-light {
     opacity: 0;
   }
-  &:hover .icon-dark {
+  &:hover .icon-dark,
+  &:focus .icon-dark {
     opacity: 1; // dark icon to match the dark label on hover
   }
-  &.poweroff:hover {
+  &.poweroff:hover,
+  &.poweroff:focus {
     background-color: $gruvbox-orange-light;
   }
-  &.lock:hover {
+  &.lock:hover,
+  &.lock:focus {
     background-color: $gruvbox-green-light;
   }
-  &.launcher:hover {
+  &.launcher:hover,
+  &.launcher:focus {
     background-color: $gruvbox-yellow-light;
   }
-  &.ssh:hover {
+  &.ssh:hover,
+  &.ssh:focus {
     background-color: $gruvbox-blue-light;
   }
   &.ssh.active {
