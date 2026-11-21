@@ -47,7 +47,7 @@
       :onclick "bash -c '${closer_script} powermenu && hyprlock'&")
     (powermenu_item :class "launcher" :label "Launcher" :icon "rocket.svg"
       :onclick "bash -c '${closer_script} powermenu && rofi -show drun'&")
-    (powermenu_item :class "ssh ${ssh_mode ? 'active' : ''}" :label "SSH mode${ssh_mode ? ' (on)' : ''}" :icon "ssh.svg"
+    (powermenu_item :class "ssh" :label "SSH mode${ssh_mode ? ' (on)' : ''}" :icon "ssh.svg"
       :onclick "bash -c '${closer_script} powermenu && ${home}/.config/eww/scripts/ssh_mode.sh toggle'&")
   )
 )
