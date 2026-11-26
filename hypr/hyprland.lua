@@ -43,14 +43,6 @@ hl.monitor({
 -- 	scale = 1,
 -- })
 
--- AOC curved monitor
--- hl.monitor({
--- 	output = "DP-4",
--- 	mode = "1920x1080@165.00",
--- 	position = "auto",
--- 	scale = 1,
--- })
-
 -- Laptop screen when mirroring to the home TV
 -- hl.monitor({
 -- 	output = "eDP-1",
