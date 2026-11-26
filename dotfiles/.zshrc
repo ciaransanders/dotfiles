@@ -90,3 +90,6 @@ function ssh() {
 
 # Environment variables
 export EDITOR=nvim
+
+# Hook in direnv
+eval "$(direnv hook zsh)"
